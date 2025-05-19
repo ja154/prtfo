@@ -1,4 +1,5 @@
-aiobotocore @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_d5vpncfh71/croot/aiobotocore_1714464397445/work
+aiobotocore==2.12.2
+
 aiohappyeyeballs @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_15gsua8xj2/croot/aiohappyeyeballs_1725434021301/work
 aiohttp @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_09lqy3yoen/croot/aiohttp_1725527765804/work
 aioitertools @ file:///tmp/build/80754af9/aioitertools_1607109665762/work
