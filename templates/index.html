@@ -16,35 +16,33 @@
     <style>
         body {
             font-family: "DM Sans", sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scroll from parallax */
+            overflow-x: hidden;
         }
 
-        /* Hero background + overlay */
         .hero-bg {
-            background: url("{{ url_for('static', filename='images/space.jpg') }}") center/cover no-repeat fixed; /* Added fixed for parallax */
+            background: url("{{ url_for('static', filename='images/space.jpg') }}") center/cover no-repeat fixed;
             min-height: 100vh;
             position: relative;
             color: #fff;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center content vertically and horizontally */
-            text-align: center; /* Ensure text is centered */
+            justify-content: center;
+            text-align: center;
         }
 
         .hero-bg::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, .65); /* Slightly darker overlay */
+            background: rgba(0, 0, 0, .65);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, .8); /* Stronger text shadow */
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, .8);
         }
 
-        /* Scroll cue */
         .scroll-down {
             width: 33px;
             height: 50px;
@@ -54,7 +52,7 @@
             left: 50%;
             bottom: 20px;
             transform: translateX(-50%);
-            z-index: 2; /* Ensure it's above the overlay */
+            z-index: 2;
         }
 
         .scroll-down::after {
@@ -84,31 +82,27 @@
             }
         }
 
-        /* Section spacing */
         .section-padding {
-            padding: 80px 0; /* Increased padding for more breathing room */
+            padding: 80px 0;
         }
 
-        /* About lists */
         .about-list li {
-            margin-bottom: .6rem; /* Increased spacing */
+            margin-bottom: .6rem;
         }
 
-        /* Service Cards Hover Effect */
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Project Image Hover Effect */
         .project-item {
             position: relative;
             overflow: hidden;
-            border-radius: .25rem; /* Bootstrap's rounded corners */
+            border-radius: .25rem;
         }
 
         .project-item img {
@@ -116,33 +110,31 @@
         }
 
         .project-item:hover img {
-            transform: scale(1.05); /* Slight zoom on hover */
+            transform: scale(1.05);
         }
 
-        /* Scroll to Top Button */
         #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
-            bottom: 30px; /* Place at the bottom */
-            right: 30px; /* Place at the right */
-            z-index: 99; /* High z-index to be on top */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: #0d6efd; /* Primary Bootstrap blue */
-            color: white; /* White text */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 50%; /* Rounded corners */
-            font-size: 20px; /* Increase font size */
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #0d6efd;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, opacity 0.3s;
         }
 
         #scrollToTopBtn:hover {
-            background-color: #0a58ca; /* Darker blue on hover */
+            background-color: #0a58ca;
         }
 
-        /* Contact Form Button Loading Spinner */
         .btn .spinner-border {
             width: 1rem;
             height: 1rem;
@@ -255,13 +247,13 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="project-item shadow-sm">
-                        <a href="https://placehold.co/800x600/FF5733/ffffff?text=Project+One" class="image-popup">
+                        <a href="https://github.com/ja154/web-scraper-project" class="image-popup" target="_blank">
                             <img src="https://placehold.co/600x400/FF5733/ffffff?text=Project+One" class="img-fluid rounded" alt="Project 1: Web Scraper">
                         </a>
                         <div class="p-3">
                             <h5 class="mt-2 fw-bold">Web Scraper for E-commerce</h5>
                             <p class="text-muted small">A Python script to extract product data from online stores.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details <i class="bi bi-box-arrow-up-right"></i></a>
+                            <a href="https://github.com/ja154/web-scraper-project" class="btn btn-sm btn-outline-primary mt-2" target="_blank">View Details <i class="bi bi-box-arrow-up-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -355,4 +347,97 @@
 </main>
 
 <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
-    <i cl
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<footer class="text-center py-4 bg-dark text-white small">
+    © 2025 Josephat Mwagongo • Built with Bootstrap
+</footer>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+    });
+
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        const submitBtn = document.getElementById('contactSubmitBtn');
+                        const spinner = submitBtn.querySelector('.spinner-border');
+                        submitBtn.disabled = true;
+                        spinner.classList.remove('d-none');
+                        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>
