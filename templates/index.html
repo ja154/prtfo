@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-first-portfolio-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <style>
         body {
@@ -140,6 +141,27 @@
             height: 1rem;
             margin-right: .5rem;
         }
+
+        /* Custom style for the certifications button badge */
+        .btn-certifications-container {
+            position: relative; /* Needed for absolute positioning of the badge */
+            display: inline-block; /* To wrap the button tightly */
+        }
+
+        .certification-badge {
+            position: absolute;
+            top: -10px; /* Adjust as needed for vertical position */
+            right: -10px; /* Adjust as needed for horizontal position */
+            padding: .35em .65em; /* Bootstrap default padding for badges */
+            font-size: .75em; /* Bootstrap default font size for badges */
+            border-radius: 50%; /* Make it circular */
+            line-height: 1; /* Ensure text aligns well */
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            background-color: var(--bs-danger); /* Use Bootstrap danger color for visibility */
+            color: var(--bs-white);
+        }
     </style>
 </head>
 <body>
@@ -196,6 +218,11 @@
                         <li><i class="bi bi-translate me-2"></i>English — Fluent</li>
                         <li><i class="bi bi-translate me-2"></i>Kiswahili — Fluent</li>
                     </ul>
+                    <div class="btn-certifications-container mt-4">
+                        <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#certificationsModal">
+                            View Certifications <i class="bi bi-file-earmark-text"></i>
+                        </button>
+                        <span class="certification-badge">4</span> </div>
                 </div>
                 <div class="col-lg-6">
                     <h5 class="fw-bold text-primary">Education</h5>
@@ -354,11 +381,47 @@
     © 2025 Josephat Mwagongo • Built with Bootstrap
 </footer>
 
+<div class="modal fade" id="certificationsModal" tabindex="-1" aria-labelledby="certificationsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="certificationsModalLabel">My Certifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Here are some of my key certifications:</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Basic Python Workshop
+                        <a href="{{ url_for('static', filename='Baobab PS520 Certificate2 _ Baobab.pdf') }}" target="_blank" class="btn btn-sm btn-primary">View PDF <i class="bi bi-box-arrow-up-right"></i></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Intermediate Python for Data Analysis
+                        <a href="{{ url_for('static', filename='Baobab PS521 Certificate _ Baobab.pdf') }}" target="_blank" class="btn btn-sm btn-primary">View PDF <i class="bi bi-box-arrow-up-right"></i></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Machine Learning Basics
+                        <a href="{{ url_for('static', filename='pdfs/certification_ml_basics.pdf') }}" target="_blank" class="btn btn-sm btn-primary">View PDF <i class="bi bi-box-arrow-up-right"></i></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Cloud Computing Fundamentals
+                        <a href="{{ url_for('static', filename='pdfs/certification_cloud.pdf') }}" target="_blank" class="btn btn-sm btn-primary">View PDF <i class="bi bi-box-arrow-up-right"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 <script>
+    // Initialize Magnific Popup for project images
     $(document).ready(function() {
         $('.image-popup').magnificPopup({
             type: 'image',
@@ -368,6 +431,7 @@
         });
     });
 
+    // Bootstrap form validation and submit button loading state
     (function () {
         'use strict'
         var forms = document.querySelectorAll('.needs-validation')
@@ -378,6 +442,7 @@
                         event.preventDefault()
                         event.stopPropagation()
                     } else {
+                        // Show spinner and disable button on valid submission
                         const submitBtn = document.getElementById('contactSubmitBtn');
                         const spinner = submitBtn.querySelector('.spinner-border');
                         submitBtn.disabled = true;
@@ -389,6 +454,7 @@
             })
     })()
 
+    // Scroll-to-top button functionality
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
     window.onscroll = function() {
@@ -407,6 +473,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Smooth scrolling for navigation links and active link highlighting
     document.addEventListener('DOMContentLoaded', function() {
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
@@ -415,6 +482,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
+                // Adjust for navbar height if needed, otherwise sectionHeight / 3 is a good offset
                 const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop - sectionHeight / 3) {
                     current = section.getAttribute('id');
