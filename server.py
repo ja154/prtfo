@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "change-me")
+app.secret_key = os.getenv("c6617b81af09aeebe6fb0343cfb0dc1667584c33f4efba12")
 
 # ------------ Flask‑Mail configuration -------------
 app.config.update(
@@ -17,7 +17,7 @@ app.config.update(
     MAIL_USE_TLS=os.getenv("MAIL_USE_TLS", "true").lower() == "true",
     MAIL_USE_SSL=os.getenv("MAIL_USE_SSL", "false").lower() == "true",
     MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
-    MAIL_PASSWORD=os.getenv("MAIL_PASSWORD"),
+    MAIL_PASSWORD=os.getenv("oxqtzgtbckomkewu"),
     MAIL_DEFAULT_SENDER=os.getenv("MAIL_DEFAULT_SENDER", os.getenv("MAIL_USERNAME")),
 )
 print("MAIL_DEFAULT_SENDER =", app.config.get("MAIL_DEFAULT_SENDER"))
