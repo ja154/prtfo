@@ -8,7 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("c6617b81af09aeebe6fb0343cfb0dc1667584c33f4efba12")
+# Corrected: os.getenv() should look for an environment variable named "SECRET_KEY"
+# The actual secret key value must be set on Render's environment variables.
+app.secret_key = os.getenv("SECRET_KEY")
 
 # ------------ Flask‑Mail configuration -------------
 app.config.update(
@@ -16,15 +18,21 @@ app.config.update(
     MAIL_PORT=int(os.getenv("MAIL_PORT", 587)),
     MAIL_USE_TLS=os.getenv("MAIL_USE_TLS", "true").lower() == "true",
     MAIL_USE_SSL=os.getenv("MAIL_USE_SSL", "false").lower() == "true",
-    MAIL_USERNAME=os.getenv("jmwanguwe3@gmail.com"),
-    MAIL_PASSWORD=os.getenv("oxqtzgtbckomkewu"),
+    # Corrected: os.getenv() should look for an environment variable named "MAIL_USERNAME"
+    # The actual email address must be set on Render's environment variables.
+    MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
+    # Corrected: os.getenv() should look for an environment variable named "MAIL_PASSWORD"
+    # The actual App Password must be set on Render's environment variables.
+    MAIL_PASSWORD=os.getenv("MAIL_PASSWORD"),
     MAIL_DEFAULT_SENDER=os.getenv("MAIL_DEFAULT_SENDER", os.getenv("MAIL_USERNAME")),
 )
 print("MAIL_DEFAULT_SENDER =", app.config.get("MAIL_DEFAULT_SENDER"))
 print("MAIL_USERNAME       =", app.config.get("MAIL_USERNAME"))
 
 mail = Mail(app)
-RECIPIENT = "jmwanguwe3@gmail.com"
+# It's good practice to also make RECIPIENT an environment variable if it changes
+# RECIPIENT = os.getenv("MAIL_RECIPIENT", "jmwanguwe3@gmail.com")
+RECIPIENT = "jmwanguwe3@gmail.com" # Keeping as hardcoded for now as per your original code
 LOG_PATH = Path("messages.log")
 
 # ---------- helper to persist every message ----------
