@@ -16,7 +16,7 @@ app.config.update(
     MAIL_PORT=int(os.getenv("MAIL_PORT", 587)),
     MAIL_USE_TLS=os.getenv("MAIL_USE_TLS", "true").lower() == "true",
     MAIL_USE_SSL=os.getenv("MAIL_USE_SSL", "false").lower() == "true",
-    MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
+    MAIL_USERNAME=os.getenv("jmwanguwe3@gmail.com"),
     MAIL_PASSWORD=os.getenv("oxqtzgtbckomkewu"),
     MAIL_DEFAULT_SENDER=os.getenv("MAIL_DEFAULT_SENDER", os.getenv("MAIL_USERNAME")),
 )
