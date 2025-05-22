@@ -10,7 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 # Corrected: os.getenv() should look for an environment variable named "SECRET_KEY"
 # The actual secret key value must be set on Render's environment variables.
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.getenv("cafcb208dac9eab60da7b3de3d3068e7e8f3d0f362c1486")
 
 # ------------ Flask‑Mail configuration -------------
 app.config.update(
@@ -20,10 +20,10 @@ app.config.update(
     MAIL_USE_SSL=os.getenv("MAIL_USE_SSL", "false").lower() == "true",
     # Corrected: os.getenv() should look for an environment variable named "MAIL_USERNAME"
     # The actual email address must be set on Render's environment variables.
-    MAIL_USERNAME=os.getenv("MAIL_USERNAME"),
+    MAIL_USERNAME=os.getenv("jmwanguwe3@gmail.com"),
     # Corrected: os.getenv() should look for an environment variable named "MAIL_PASSWORD"
     # The actual App Password must be set on Render's environment variables.
-    MAIL_PASSWORD=os.getenv("MAIL_PASSWORD"),
+    MAIL_PASSWORD=os.getenv("oxqtzgtbckomkewu"),
     MAIL_DEFAULT_SENDER=os.getenv("MAIL_DEFAULT_SENDER", os.getenv("MAIL_USERNAME")),
 )
 print("MAIL_DEFAULT_SENDER =", app.config.get("MAIL_DEFAULT_SENDER"))
