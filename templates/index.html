@@ -3,160 +3,479 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Josephat Mwagongo | Portfolio</title>
+    <title>Josephat Mwagongo | Tech Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-first-portfolio-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <style>
-        body {
-            font-family: "DM Sans", sans-serif;
-            overflow-x: hidden;
+        :root {
+            --primary-neon: #00d4ff;
+            --secondary-neon: #ff0080;
+            --accent-neon: #00ff88;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: rgba(15, 15, 25, 0.8);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --grid-color: rgba(0, 212, 255, 0.1);
         }
 
-        .hero-bg {
-            background: url("{{ url_for('static', filename='images/space.jpg') }}") center/cover no-repeat fixed;
-            min-height: 100vh;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animated Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* Glowing Navigation */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-neon) !important;
+            text-shadow: 0 0 20px var(--primary-neon);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
             position: relative;
-            color: #fff;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-neon) !important;
+            text-shadow: 0 0 10px var(--primary-neon);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--accent-neon));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section with Particle Effect */
+        .hero-section {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-        }
-
-        .hero-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, .65);
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, .8);
-        }
-
-        .scroll-down {
-            width: 33px;
-            height: 50px;
-            border: 2px solid #fff;
-            border-radius: 14px;
-            position: absolute;
-            left: 50%;
-            bottom: 20px;
-            transform: translateX(-50%);
+            text-align: center;
             z-index: 2;
+            position: relative;
         }
 
-        .scroll-down::after {
-            content: "";
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 10px;
-            transform: translateX(-50%);
-            animation: scroll 2s infinite;
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon), var(--accent-neon));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 1rem;
         }
 
-        @keyframes scroll {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, 0);
-            }
-            40% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, 12px);
-            }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .section-padding {
-            padding: 80px 0;
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
         }
 
-        .about-list li {
-            margin-bottom: .6rem;
+        .typing-effect::after {
+            content: '|';
+            color: var(--primary-neon);
+            animation: blink 1s infinite;
         }
 
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-item {
+        /* Glowing Buttons */
+        .btn-neon {
+            background: transparent;
+            border: 2px solid var(--primary-neon);
+            color: var(--primary-neon);
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            border-radius: .25rem;
+            transition: all 0.3s ease;
         }
 
-        .project-item img {
-            transition: transform 0.3s ease;
+        .btn-neon:hover {
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px var(--primary-neon);
+            transform: translateY(-2px);
         }
 
-        .project-item:hover img {
-            transform: scale(1.05);
+        .btn-neon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-neon);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
+        .btn-neon:hover::before {
+            left: 0;
+        }
+
+        /* Tech Cards */
+        .tech-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .tech-card:hover::before {
+            animation: shimmer 0.6s ease-in-out;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-neon);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary-neon);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Skill Bars with Animation */
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-neon), var(--accent-neon));
+            border-radius: 10px;
+            position: relative;
+            transition: width 1.5s ease;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: skillShine 2s ease-in-out infinite;
+        }
+
+        @keyframes skillShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            left: 100%;
+        }
+
+        /* Contact Form */
+        .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--text-primary);
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            color: var(--text-primary);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--accent-neon));
+            border-radius: 2px;
+        }
+
+        /* Scroll to Top Button */
         #scrollToTopBtn {
-            display: none;
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 99;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-neon);
+            color: var(--dark-bg);
             border: none;
-            outline: none;
-            background-color: #0d6efd;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
             border-radius: 50%;
-            font-size: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, opacity 0.3s;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+            z-index: 1000;
         }
 
         #scrollToTopBtn:hover {
-            background-color: #0a58ca;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
         }
 
-        .btn .spinner-border {
-            width: 1rem;
-            height: 1rem;
-            margin-right: .5rem;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .tech-card {
+                margin-bottom: 2rem;
+            }
         }
 
-        /* Removed custom badge styles as they are no longer needed */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-neon);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-neon);
+        }
+
+        /* Additional Tech Elements */
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary-neon);
+            border-radius: 20px;
+            color: var(--primary-neon);
+            font-size: 0.9rem;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: var(--primary-neon);
+            color: var(--dark-bg);
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-neon);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            color: var(--accent-neon);
+            transform: scale(1.2);
+        }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+<!-- Animated Grid Background -->
+<div class="grid-background"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">J Mwagongo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#">&lt;/J.Mwagongo&gt;</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-list text-white fs-3"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#section_1">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#section_1">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section_2">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section_3">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section_4">Projects</a></li>
@@ -167,128 +486,233 @@
 </nav>
 
 <main>
-
-    <section id="section_1" class="hero-bg">
-        <div class="container hero-content text-center">
-            <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Hello there, I'm Josephat</h1>
-            <p class="lead mb-5 animate__animated animate__fadeInUp">Python programmer available for freelance projects.</p>
-            <a class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg animate__animated animate__zoomIn" href="#section_2">
-                Click here for more info <i class="bi bi-arrow-right-short"></i>
-            </a>
+    <!-- Hero Section -->
+    <section id="section_1" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate__animated animate__fadeInDown">
+                    Hello, I'm <span class="typing-effect">Josephat</span>
+                </h1>
+                <p class="hero-subtitle animate__animated animate__fadeInUp">
+                    <span class="code-font">&lt;</span>Python Developer | Data Scientist | AI Enthusiast<span class="code-font">/&gt;</span>
+                </p>
+                <div class="animate__animated animate__zoomIn">
+                    <a href="#section_2" class="btn btn-neon me-3">
+                        <i class="bi bi-code-slash me-2"></i>Explore My Work
+                    </a>
+                    <a href="#section_5" class="btn btn-neon">
+                        <i class="bi bi-lightning-charge me-2"></i>Let's Connect
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="scroll-down"></div>
     </section>
 
+    <!-- About Section -->
     <section id="section_2" class="section-padding">
         <div class="container">
-            <h2 class="mb-5 text-center fw-bold">My Story</h2>
+            <h2 class="section-title">About.exe</h2>
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <p class="lead">Highly motivated and detail‑oriented junior developer with a passion for data annotation,
-                        backend programming, and AI. I thrive on transforming complex problems into elegant code.</p>
-                    <h5 class="mt-4 fw-bold text-primary">Skills</h5>
-                    <ul class="list-unstyled about-list">
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Accurate Data Labeling (text, images, audio)</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Python • Flask • Django • Pandas</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Web: HTML 5, Bootstrap 5</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Annotation Tools: Labelbox, Prodigy (beginner)</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Strong written & verbal communication</li>
-                    </ul>
-                    <h5 class="mt-4 fw-bold text-primary">Languages</h5>
-                    <ul class="list-unstyled about-list">
-                        <li><i class="bi bi-translate me-2"></i>English — Fluent</li>
-                        <li><i class="bi bi-translate me-2"></i>Kiswahili — Fluent</li>
-                    </ul>
-                    <h5 class="mt-4 fw-bold text-primary">Certifications</h5> <div class="d-flex flex-wrap gap-2 mt-4">
-                        <a href="{{ url_for('static', filename='Baobab PS521 Certificate _ Baobab.pdf') }}" target="_blank" class="btn btn-outline-primary btn-lg">
-                            View Intermediate Python Cert <i class="bi bi-box-arrow-up-right"></i>
-                        </a>
-                        <a href="{{ url_for('static', filename='Baobab PS520 Certificate2 _ Baobab.pdf') }}" target="_blank" class="btn btn-outline-secondary btn-lg">
-                            View Basic Python Cert <i class="bi bi-box-arrow-up-right"></i>
-                        </a>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="tech-card">
+                        <h3 class="code-font mb-4" style="color: var(--primary-neon);">// My Journey</h3>
+                        <p class="lead mb-4">
+                            Highly motivated and detail‑oriented junior developer with a passion for data annotation,
+                            backend programming, and AI. I thrive on transforming complex problems into elegant code.
+                        </p>
+                        
+                        <h4 class="code-font mb-3" style="color: var(--accent-neon);">Skills Stack:</h4>
+                        <div class="mb-4">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Django</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">Bootstrap</span>
+                            <span class="tech-badge">Data Analysis</span>
+                            <span class="tech-badge">AI/ML</span>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="code-font mb-3">Core Competencies:</h5>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Python Development</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Data Analysis</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Web Development</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Machine Learning</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-6">
-                    <h5 class="fw-bold text-primary">Education</h5>
-                    <p><strong>Bachelor’s Degree (ongoing)</strong> — Peace Studies & Disaster Management, <br>
-                        <em>Masinde Muliro University of Science & Technology</em></p>
+                    <div class="tech-card">
+                        <h3 class="code-font mb-4" style="color: var(--secondary-neon);">// Education & Certs</h3>
+                        
+                        <div class="mb-4">
+                            <h5 style="color: var(--primary-neon);">🎓 Education</h5>
+                            <p><strong>Bachelor's Degree (ongoing)</strong><br>
+                            Peace Studies & Disaster Management<br>
+                            <em>Masinde Muliro University of Science & Technology</em></p>
+                        </div>
 
-                    <h5 class="mt-4 fw-bold text-primary">Self‑Led Projects</h5>
-                    <ul class="list-unstyled about-list">
-                        <li><i class="bi bi-code-square me-2"></i>Open‑source image‑labeling practice with CVAT</li>
-                        <li><i class="bi bi-code-square me-2"></i>Personal Python automation scripts (web scraping, file ops)</li>
-                    </ul>
+                        <div class="mb-4">
+                            <h5 style="color: var(--accent-neon);">🏆 Certifications</h5>
+                            <div class="d-flex flex-column gap-2">
+                                <a href="#" class="btn btn-neon btn-sm">
+                                    <i class="bi bi-award me-2"></i>Intermediate Python Certificate
+                                </a>
+                                <a href="#" class="btn btn-neon btn-sm">
+                                    <i class="bi bi-award me-2"></i>Basic Python Certificate
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5 style="color: var(--secondary-neon);">🌐 Languages</h5>
+                            <p><i class="bi bi-translate me-2"></i>English — Fluent<br>
+                            <i class="bi bi-translate me-2"></i>Kiswahili — Fluent</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="section_3" class="section-padding bg-light">
+    <!-- Services Section -->
+    <section id="section_3" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Services</h2>
-            <div class="row g-4 text-center">
+            <h2 class="section-title">Services.json</h2>
+            <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="p-4 shadow-sm h-100 rounded service-card">
-                        <i class="bi bi-window fs-1 mb-3 text-primary"></i>
-                        <h5 class="fw-bold">Web Development (with Python)</h5>
-                        <p>Modern, responsive sites with Flask, Django & Bootstrap.</p>
+                    <div class="tech-card text-center">
+                        <i class="tech-icon bi bi-code-square"></i>
+                        <h4 class="code-font mb-3">Web Development</h4>
+                        <p>Modern, responsive applications built with Python frameworks like Flask and Django, featuring clean UI/UX design.</p>
+                        <div class="mt-3">
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Django</span>
+                            <span class="tech-badge">Bootstrap</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-4 shadow-sm h-100 rounded service-card">
-                        <i class="bi bi-code-slash fs-1 mb-3 text-primary"></i>
-                        <h5 class="fw-bold">Python Programming</h5>
-                        <p>Automation, Debugging, scraping & API integrations.</p>
+                    <div class="tech-card text-center">
+                        <i class="tech-icon bi bi-terminal"></i>
+                        <h4 class="code-font mb-3">Python Programming</h4>
+                        <p>Custom automation scripts, API integrations, web scraping solutions, and backend development services.</p>
+                        <div class="mt-3">
+                            <span class="tech-badge">Automation</span>
+                            <span class="tech-badge">APIs</span>
+                            <span class="tech-badge">Scraping</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-4 shadow-sm h-100 rounded service-card">
-                        <i class="bi bi-bar-chart-line fs-1 mb-3 text-primary"></i>
-                        <h5 class="fw-bold">Data Analysis</h5>
-                        <p>Exploratory analysis & visualisation with Pandas & Seaborn.</p>
+                    <div class="tech-card text-center">
+                        <i class="tech-icon bi bi-graph-up-arrow"></i>
+                        <h4 class="code-font mb-3">Data Analysis</h4>
+                        <p>Comprehensive data analysis, visualization, and insights generation using Pandas, NumPy, and modern ML techniques.</p>
+                        <div class="mt-3">
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">Visualization</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="section_4" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Projects</h2>
-            <div class="row g-4 justify-content-center">
+            <h2 class="section-title">Projects.py</h2>
+            <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-item shadow-sm">
-                        <a href="https://github.com/ja154/web-scraper-project" class="image-popup" target="_blank">
-                            <img src="https://placehold.co/600x400/FF5733/ffffff?text=Project+One" class="img-fluid rounded" alt="Project 1: Web Scraper">
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mt-2 fw-bold">Web Scraper for E-commerce</h5>
-                            <p class="text-muted small">A Python script to extract product data from online stores.</p>
-                            <a href="https://github.com/ja154/web-scraper-project" class="btn btn-sm btn-outline-primary mt-2" target="_blank">View Details <i class="bi bi-box-arrow-up-right"></i></a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="code-font mb-3">Web Scraper Bot</h5>
+                            <p class="text-muted mb-3">Intelligent Python bot for extracting and processing e-commerce product data with advanced filtering capabilities.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">BeautifulSoup</span>
+                                <span class="tech-badge">Selenium</span>
+                            </div>
+                            <a href="#" class="btn btn-neon btn-sm">
+                                <i class="bi bi-github me-2"></i>View Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-item shadow-sm">
-                        <a href="https://placehold.co/800x600/33FF57/ffffff?text=Project+Two" class="image-popup">
-                            <img src="https://placehold.co/600x400/33FF57/ffffff?text=Project+Two" class="img-fluid rounded" alt="Project 2: Task Manager API">
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mt-2 fw-bold">Flask Task Manager API</h5>
-                            <p class="text-muted small">A RESTful API built with Flask for managing tasks.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details <i class="bi bi-box-arrow-up-right"></i></a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="bi bi-server"></i>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="code-font mb-3">Task Manager API</h5>
+                            <p class="text-muted mb-3">RESTful API built with Flask featuring JWT authentication, CRUD operations, and real-time notifications.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">Flask</span>
+                                <span class="tech-badge">JWT</span>
+                                <span class="tech-badge">SQLAlchemy</span>
+                            </div>
+                            <a href="#" class="btn btn-neon btn-sm">
+                                <i class="bi bi-play-circle me-2"></i>Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="project-item shadow-sm">
-                        <a href="https://placehold.co/800x600/3366FF/ffffff?text=Project+Three" class="image-popup">
-                            <img src="https://placehold.co/600x400/3366FF/ffffff?text=Project+Three" class="img-fluid rounded" alt="Project 3: Data Visualization Dashboard">
-                        </a>
-                        <div class="p-3">
-                            <h5 class="mt-2 fw-bold">Interactive Data Dashboard</h5>
-                            <p class="text-muted small">A web-based dashboard for visualizing datasets using Pandas.</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary mt-2">View Details <i class="bi bi-box-arrow-up-right"></i></a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="bi bi-bar-chart"></i>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="code-font mb-3">Data Viz Dashboard</h5>
+                            <p class="text-muted mb-3">Interactive web dashboard for real-time data visualization with custom charts and analytics insights.</p>
+                            <div class="mb-3">
+                                <span class="tech-badge">Pandas</span>
+                                <span class="tech-badge">Plotly</span>
+                                <span class="tech-badge">Dash</span>
+                            </div>
+                            <a href="#" class="btn btn-neon btn-sm">
+                                <i class="bi bi-eye me-2"></i>Preview
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -296,6 +720,43 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+<section id="section_5" class="section-padding">
+    <div class="container">
+        <h2 class="section-title">Contact.connect()</h2>
+
+        <div class="row justify-content-center text-center g-4 mb-5">
+            <div class="col-md-4">
+                <div class="contact-icon">
+                    <i class="bi bi-envelope-at"></i>
+                </div>
+                <h5 class="code-font">Email</h5>
+                <a href="mailto:jmwanguwe3@gmail.com" style="color: var(--primary-neon); text-decoration: none;">
+                    jmwanguwe3@gmail.com
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-icon">
+                    <i class="bi bi-phone-vibrate"></i>
+                </div>
+                <h5 class="code-font">Phone</h5>
+                <a href="tel:0742453547" style="color: var(--primary-neon); text-decoration: none;">
+                    0742‑453‑547
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-icon">
+                    <i class="bi bi-github"></i>
+                </div>
+                <h5 class="code-font">GitHub</h5>
+                <a href="https://github.com/ja154" target="_blank" style="color: var(--primary-neon); text-decoration: none;">
+                    github.com/ja154
+                </a>
+            </div>
+        </div>
+
+       
+    
     <section id="section_5" class="section-padding bg-dark text-white">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">Get in Touch</h2>
