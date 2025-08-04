@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = "a_very_secret_key_that_should_be_changed"
 
 app.config.update(
     MAIL_SERVER=os.getenv("MAIL_SERVER", "smtp.gmail.com"),
@@ -23,7 +23,7 @@ print("MAIL_DEFAULT_SENDER =", app.config.get("MAIL_DEFAULT_SENDER"))
 print("MAIL_USERNAME       =", app.config.get("MAIL_USERNAME"))
 
 mail = Mail(app)
-RECIPIENT = "jmwanguwe3@gmail.com"
+RECIPIENT = os.getenv("MAIL_RECIPIENT", "jmwanguwe3@gmail.com")
 LOG_PATH = Path("messages.log")
 
 def write_to_file(data: dict):
@@ -49,7 +49,7 @@ def send_email():
 
     msg = Message(
         subject   = f"Portfolio Contact | {name}",
-        sender    = "jmwanguwe3@gmail.com",
+        sender    = app.config.get("MAIL_DEFAULT_SENDER"),
         recipients = [RECIPIENT],
         reply_to  = email,
         body      = f"Name: {name}\nEmail: {email}\n\n{message}"
