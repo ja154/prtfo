@@ -11,16 +11,23 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_changed")
 
 # Database Configuration
-# Vercel provides POSTGRES_URL when using its PostgreSQL integration.
-# We fall back to DATABASE_URL or a local postgres instance.
+# Vercel provides STORAGE_URL or POSTGRES_URL.
+# We use pg8000 as the driver for better serverless compatibility.
 database_url = os.getenv("STORAGE_URL") or os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
 
-if database_url and database_url.startswith("postgres://"):
-    # SQLAlchemy requires "postgresql://" instead of "postgres://"
-    database_url = database_url.replace("postgres://", "postgresql://", 1)
+if database_url:
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql+pg8000://", 1)
+    elif database_url.startswith("postgresql://"):
+        database_url = database_url.replace("postgresql://", "postgresql+pg8000://", 1)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Add connection pooling settings for serverless environments
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "pool_pre_ping": True,
+    "pool_recycle": 300,
+}
 
 db = SQLAlchemy(app)
 
@@ -46,16 +53,17 @@ class ContactMessage(db.Model):
     message = db.Column(db.Text, nullable=False)
     timestamp_utc = db.Column(db.DateTime, default=datetime.utcnow)
 
-# Create tables safely
-def init_db():
-    if app.config['SQLALCHEMY_DATABASE_URI']:
-        try:
-            with app.app_context():
+# Function to safely initialize the database on the first request
+@app.before_request
+def create_tables():
+    if not hasattr(app, '_db_initialized'):
+        if app.config['SQLALCHEMY_DATABASE_URI']:
+            try:
                 db.create_all()
-        except Exception as e:
-            print(f"Database initialization error: {e}")
-
-init_db()
+                app._db_initialized = True
+            except Exception as e:
+                print(f"Lazy database initialization error: {e}")
+                # Don't set _db_initialized so we can try again later
 
 @app.route("/")
 def my_home():

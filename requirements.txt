@@ -3,4 +3,4 @@ Flask-Mail
 python-dotenv
 gunicorn
 Flask-SQLAlchemy
-psycopg2-binary
+pg8000
