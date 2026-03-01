@@ -71,7 +71,9 @@ def create_tables():
 
 @app.route("/")
 def my_home():
-    return render_template("index.html")
+    tech_stack = ["TypeScript", "JavaScript", "HTML", "Python", "Java", "CSS"]
+    return render_template("index.html", tech_stack=tech_stack)
+
 
 @app.route("/send", methods=["POST"])
 def send_email():

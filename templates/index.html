@@ -523,14 +523,9 @@
                         
                         <h4 class="code-font mb-3" style="color: var(--accent-neon);">Skills Stack:</h4>
                         <div class="mb-4">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Flask</span>
-                            <span class="tech-badge">Django</span>
-                            <span class="tech-badge">Pandas</span>
-                            <span class="tech-badge">HTML5</span>
-                            <span class="tech-badge">Bootstrap</span>
-                            <span class="tech-badge">Data Analysis</span>
-                            <span class="tech-badge">AI/ML</span>
+                            {% for tech in tech_stack %}
+                                <span class="tech-badge">{{ tech }}</span>
+                            {% endfor %}
                         </div>
 
                         <div class="mb-4">
