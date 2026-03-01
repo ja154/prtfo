@@ -11,9 +11,15 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_changed")
 
 # Database Configuration
-# Local: postgresql://username:password@localhost:5432/portfolio_db
-# Vercel: Use the POSTGRES_URL environment variable
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "postgresql://localhost/portfolio_db")
+# Vercel provides POSTGRES_URL when using its PostgreSQL integration.
+# We fall back to DATABASE_URL or a local postgres instance.
+database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
+
+if database_url and database_url.startswith("postgres://"):
+    # SQLAlchemy requires "postgresql://" instead of "postgres://"
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -40,9 +46,16 @@ class ContactMessage(db.Model):
     message = db.Column(db.Text, nullable=False)
     timestamp_utc = db.Column(db.DateTime, default=datetime.utcnow)
 
-# Create tables
-with app.app_context():
-    db.create_all()
+# Create tables safely
+def init_db():
+    if app.config['SQLALCHEMY_DATABASE_URI']:
+        try:
+            with app.app_context():
+                db.create_all()
+        except Exception as e:
+            print(f"Database initialization error: {e}")
+
+init_db()
 
 @app.route("/")
 def my_home():
@@ -58,13 +71,20 @@ def send_email():
         flash("Please fill in every field.", "danger")
         return redirect(url_for("my_home") + "#section_5")
 
+    # Try to store in database if configured
+    db_success = False
+    if app.config['SQLALCHEMY_DATABASE_URI']:
+        try:
+            new_msg = ContactMessage(name=name, email=email, message=message)
+            db.session.add(new_msg)
+            db.session.commit()
+            db_success = True
+        except Exception as exc:
+            print("Database storage error:", exc)
+            db.session.rollback()
+
+    # Always try to send email regardless of DB status
     try:
-        # Store in PostgreSQL
-        new_msg = ContactMessage(name=name, email=email, message=message)
-        db.session.add(new_msg)
-        db.session.commit()
-        
-        # Send Email
         msg = Message(
             subject   = f"Portfolio Contact | {name}",
             sender    = app.config.get("MAIL_DEFAULT_SENDER"),
@@ -73,11 +93,18 @@ def send_email():
             body      = f"Name: {name}\nEmail: {email}\n\n{message}"
         )
         mail.send(msg)
-        flash("Thanks! Your message has been sent and saved ✔", "success")
+        
+        if db_success:
+            flash("Thanks! Your message has been sent and saved ✔", "success")
+        else:
+            flash("Thanks! Your message has been sent (local storage failed) ✔", "warning")
+            
     except Exception as exc:
-        print("Error processing message:", exc)
-        db.session.rollback()
-        flash("There was an error sending your message. Please try again later.", "danger")
+        print("Email sending error:", exc)
+        if db_success:
+            flash("Message saved, but email failed to send. I'll check it later!", "warning")
+        else:
+            flash("There was an error sending your message. Please try again later.", "danger")
 
     return redirect(url_for("my_home") + "#section_5")
 
