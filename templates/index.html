@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,765 +8,1205 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-<div class="min-h-screen bg-[#111111] text-slate-300 font-mono relative selection:bg-orange-500/30 overflow-x-hidden" style="font-family: 'Fira Code', monospace;">
-    <style>
-        .font-sans-heading { font-family: 'Inter', sans-serif; }
-        .bg-grid-pattern {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, #ffffff05 1px, transparent 1px),
-                              linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
-        }
-        .glow-text {
-            text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
-    
-    <!-- Background Grid -->
-    <div class="fixed inset-0 pointer-events-none bg-grid-pattern z-0"></div>
-    <div class="fixed inset-0 pointer-events-none bg-gradient-to-b from-transparent via-[#111111]/50 to-[#111111] z-0"></div>
+    <div class="min-h-screen bg-[#111111] text-slate-300 font-mono relative selection:bg-orange-500/30 overflow-x-hidden"
+        style="font-family: 'Fira Code', monospace;">
+        <style>
+            .font-sans-heading {
+                font-family: 'Inter', sans-serif;
+            }
 
-    <!-- Right Navigation Dots -->
-    <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 items-center">
-        <a href="#" class="w-10 h-10 rounded-full border border-orange-500/50 flex items-center justify-center text-orange-500 bg-orange-500/10 transition-all hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        </a>
-        <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-        <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-        <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-        <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-    </div>
+            .bg-grid-pattern {
+                background-size: 40px 40px;
+                background-image: linear-gradient(to right, #ffffff05 1px, transparent 1px),
+                    linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
+            }
 
-    <!-- Main Container -->
-    <main class="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:px-12 flex flex-col gap-32">
+            .glow-text {
+                text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+            }
 
-        <!-- HERO SECTION -->
-        <section class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-between gap-12">
-            <!-- Left Content -->
-            <div class="flex-1 space-y-8">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-xs font-medium text-orange-400 tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                    SYSTEM.KERNEL :: v2.5.0 ONLINE
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+
+        <!-- Background Grid -->
+        <div class="fixed inset-0 pointer-events-none bg-grid-pattern z-0"></div>
+        <div
+            class="fixed inset-0 pointer-events-none bg-gradient-to-b from-transparent via-[#111111]/50 to-[#111111] z-0">
+        </div>
+
+        <!-- Right Navigation Dots -->
+        <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 items-center">
+            <a href="#"
+                class="w-10 h-10 rounded-full border border-orange-500/50 flex items-center justify-center text-orange-500 bg-orange-500/10 transition-all hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+            </a>
+            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
+            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
+            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
+            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
+        </div>
+
+        <!-- Main Container -->
+        <main class="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:px-12 flex flex-col gap-32">
+
+            <!-- HERO SECTION -->
+            <section class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Left Content -->
+                <div class="flex-1 space-y-8">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-xs font-medium text-orange-400 tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                        SYSTEM.KERNEL :: v2.5.0 ONLINE
+                    </div>
+
+                    <!-- Headings -->
+                    <div class="space-y-2">
+                        <h1 class="text-5xl lg:text-7xl font-sans-heading font-bold text-white tracking-tight">
+                            Hello, I'm
+                        </h1>
+                        <h1 class="text-5xl lg:text-7xl font-sans-heading font-extrabold tracking-tight">
+                            <span
+                                class="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-500 text-transparent bg-clip-text">Josephat
+                                Mwagongo</span>
+                        </h1>
+                    </div>
+
+                    <!-- Subtitle -->
+                    <div class="text-xl lg:text-2xl text-slate-400 font-light flex items-center gap-3">
+                        <span class="text-orange-500 font-medium">&lt;Full Stack Developer /&gt;</span>
+                        <span class="text-slate-500">Building Solutions That Matter.</span>
+                    </div>
+                    <p class="text-slate-400 max-w-xl leading-relaxed">
+                        Passionate about creating robust web applications with modern technologies. Specializing in
+                        full-stack development, database design, and cloud deployment.
+                    </p>
+
+                    <!-- Actions -->
+                    <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                        <!-- Initialize OS Button -->
+                        <div
+                            class="group relative w-full sm:w-80 h-[60px] bg-[#1a1a1a] border border-orange-500/30 rounded cursor-pointer overflow-hidden transition-all hover:border-orange-500">
+                            <div class="absolute inset-0 flex items-center justify-between px-5 z-10">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-orange-500 text-lg">›_</span>
+                                    <div class="flex flex-col items-start">
+                                        <span
+                                            class="text-white font-medium text-sm group-hover:text-orange-400 transition-colors">Initialize
+                                            OS</span>
+                                        <span class="text-slate-500 text-xs font-mono">> sudo boot_gui</span>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-slate-500 group-hover:text-orange-500">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </div>
+                            <!-- Progress Bar Simulation -->
+                            <div
+                                class="absolute bottom-0 left-0 h-[2px] w-3/4 bg-orange-500 group-hover:w-full transition-all duration-700">
+                            </div>
+                            <div class="absolute bottom-1 right-2 text-[10px] text-orange-500/80 font-mono">Loading ...
+                            </div>
+                        </div>
+
+                        <!-- GitHub Button -->
+                        <a href="https://www.github.com/ja154" target="_blank" rel="noopener noreferrer"
+                            class="group relative w-full sm:w-auto h-[60px] px-6 bg-slate-800 border border-slate-700 flex items-center justify-center gap-3 rounded cursor-pointer transition-all hover:border-orange-500 hover:bg-slate-700/50">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="text-slate-300 group-hover:text-orange-500 transition-colors">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                </path>
+                            </svg>
+                            <div class="flex flex-col items-start leading-none gap-1">
+                                <span
+                                    class="text-[10px] text-slate-400 group-hover:text-slate-300 transition-colors">Check
+                                    out</span>
+                                <span
+                                    class="font-bold text-white group-hover:text-orange-500 transition-colors">GitHub</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Loaded Modules -->
+                    <div class="pt-6">
+                        <div class="text-[10px] text-slate-500 mb-2 font-bold tracking-widest">LOADED_MODULES:</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">TYPESCRIPT</span>
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">JAVASCRIPT</span>
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">PYTHON</span>
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">REACT</span>
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">FLASK</span>
+                            <span
+                                class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">POSTGRESQL</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Headings -->
-                <div class="space-y-2">
-                    <h1 class="text-5xl lg:text-7xl font-sans-heading font-bold text-white tracking-tight">
-                        Hello, I'm
-                    </h1>
-                    <h1 class="text-5xl lg:text-7xl font-sans-heading font-extrabold tracking-tight">
-                        <span class="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-500 text-transparent bg-clip-text">Josephat Mwagongo</span>
-                    </h1>
-                </div>
+                <!-- Right Content: Code Window -->
+                <div class="flex-1 w-full max-w-xl">
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 overflow-hidden shadow-2xl relative">
+                        <!-- Glow effect behind -->
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-50 z-0">
+                        </div>
 
-                <!-- Subtitle -->
-                <div class="text-xl lg:text-2xl text-slate-400 font-light flex items-center gap-3">
-                    <span class="text-orange-500 font-medium">&lt;Full Stack Developer /&gt;</span>
-                    <span class="text-slate-500">Building Solutions That Matter.</span>
-                </div>
-                <p class="text-slate-400 max-w-xl leading-relaxed">
-                    Passionate about creating robust web applications with modern technologies. Specializing in full-stack development, database design, and cloud deployment.
-                </p>
+                        <!-- Window Header -->
+                        <div
+                            class="relative z-10 bg-[#1e1e1e] px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            </div>
+                            <div class="text-xs text-slate-500 font-mono">josephat_portfolio.html</div>
+                            <div class="w-10"></div> <!-- Spacer -->
+                        </div>
 
-                <!-- Actions -->
-                <div class="flex flex-col sm:flex-row gap-5 pt-4">
-                    <!-- Initialize OS Button -->
-                    <div class="group relative w-full sm:w-80 h-[60px] bg-[#1a1a1a] border border-orange-500/30 rounded cursor-pointer overflow-hidden transition-all hover:border-orange-500">
-                        <div class="absolute inset-0 flex items-center justify-between px-5 z-10">
-                            <div class="flex items-center gap-3">
-                                <span class="text-orange-500 text-lg">›_</span>
-                                <div class="flex flex-col items-start">
-                                    <span class="text-white font-medium text-sm group-hover:text-orange-400 transition-colors">Initialize OS</span>
-                                    <span class="text-slate-500 text-xs font-mono">> sudo boot_gui</span>
+                        <!-- Code Content -->
+                        <div class="relative z-10 p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+                            <div class="text-slate-500 italic mb-2">// Full Stack Developer & Problem Solver</div>
+
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">2</span>
+                                <div>
+                                    <span class="text-purple-400">import</span>
+                                    <span class="text-yellow-100">{</span> <span
+                                        class="text-red-400">FullStackDeveloper</span> <span
+                                        class="text-yellow-100">}</span>
+                                    <span class="text-purple-400">from</span>
+                                    <span class="text-green-400">'./portfolio'</span><span
+                                        class="text-slate-400">;</span>
                                 </div>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-500 group-hover:text-orange-500"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        </div>
-                        <!-- Progress Bar Simulation -->
-                        <div class="absolute bottom-0 left-0 h-[2px] w-3/4 bg-orange-500 group-hover:w-full transition-all duration-700"></div>
-                        <div class="absolute bottom-1 right-2 text-[10px] text-orange-500/80 font-mono">Loading ...</div>
-                    </div>
-
-                    <!-- GitHub Button -->
-                      <a href="https://github.com/ja154" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 rounded-lg hover:border-orange-500 transition-colors text-slate-300 hover:text-orange-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
-                        Check out GitHub
-                    </a>                  <span class="text-[10px] text-slate-400">Check out</span>
-                            <span class="font-bold leading-none">GitHub</span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Loaded Modules -->
-                <div class="pt-6">
-                    <div class="text-[10px] text-slate-500 mb-2 font-bold tracking-widest">LOADED_MODULES:</div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">TYPESCRIPT</span>
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">JAVASCRIPT</span>
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">PYTHON</span>
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">REACT</span>
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">FLASK</span>
-                        <span class="px-2 py-1 text-[10px] border border-orange-900/40 text-orange-500/80 bg-orange-900/10 rounded">POSTGRESQL</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Content: Code Window -->
-            <div class="flex-1 w-full max-w-xl">
-                <div class="rounded-lg bg-[#151515] border border-slate-800 overflow-hidden shadow-2xl relative">
-                    <!-- Glow effect behind -->
-                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-50 z-0"></div>
-                    
-                    <!-- Window Header -->
-                    <div class="relative z-10 bg-[#1e1e1e] px-4 py-3 flex items-center justify-between border-b border-slate-800">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                        </div>
-                        <div class="text-xs text-slate-500 font-mono">josephat_portfolio.html</div>
-                        <div class="w-10"></div> <!-- Spacer -->
-                    </div>
-
-                    <!-- Code Content -->
-                    <div class="relative z-10 p-6 font-mono text-sm leading-relaxed overflow-x-auto">
-                        <div class="text-slate-500 italic mb-2">// Full Stack Developer & Problem Solver</div>
-                        
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">2</span>
-                            <div>
-                                <span class="text-purple-400">import</span> 
-                                <span class="text-yellow-100">{</span> <span class="text-red-400">FullStackDeveloper</span> <span class="text-yellow-100">}</span> 
-                                <span class="text-purple-400">from</span> 
-                                <span class="text-green-400">'./portfolio'</span><span class="text-slate-400">;</span>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">3</span>
+                                <div>&nbsp;</div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">4</span>
+                                <div>
+                                    <span class="text-purple-400">const</span> <span
+                                        class="text-yellow-300">JosephatPortfolio</span> <span
+                                        class="text-cyan-400">=</span> <span class="text-blue-400">()</span> <span
+                                        class="text-purple-400">=></span> <span class="text-yellow-100">{</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">5</span>
+                                <div class="pl-4">
+                                    <span class="text-purple-400">return</span> <span class="text-blue-400">(</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">6</span>
+                                <div class="pl-8">
+                                    <span class="text-yellow-100">&lt;</span><span class="text-red-400">Developer</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">7</span>
+                                <div class="pl-12">
+                                    <span class="text-cyan-400">name</span><span class="text-white">=</span><span
+                                        class="text-green-400">"Josephat Mwagongo"</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">8</span>
+                                <div class="pl-12">
+                                    <span class="text-cyan-400">role</span><span class="text-white">=</span><span
+                                        class="text-green-400">"Full Stack Developer"</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">9</span>
+                                <div class="pl-12">
+                                    <span class="text-cyan-400">passion</span><span class="text-white">=</span><span
+                                        class="text-green-400">"Building Solutions That Matter"</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">10</span>
+                                <div class="pl-8">
+                                    <span class="text-yellow-100">/&gt;</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">11</span>
+                                <div class="pl-4">
+                                    <span class="text-blue-400">)</span><span class="text-slate-400">;</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">12</span>
+                                <div class="text-yellow-100">}</div>
+                            </div>
+                            <div class="flex">
+                                <span class="text-slate-600 select-none w-8 text-right pr-4">13</span>
+                                <div><span class="text-yellow-100">;</span></div>
                             </div>
                         </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">3</span>
-                            <div>&nbsp;</div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">4</span>
-                            <div>
-                                <span class="text-purple-400">const</span> <span class="text-yellow-300">JosephatPortfolio</span> <span class="text-cyan-400">=</span> <span class="text-blue-400">()</span> <span class="text-purple-400">=></span> <span class="text-yellow-100">{</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">5</span>
-                            <div class="pl-4">
-                                <span class="text-purple-400">return</span> <span class="text-blue-400">(</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">6</span>
-                            <div class="pl-8">
-                                <span class="text-yellow-100">&lt;</span><span class="text-red-400">Developer</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">7</span>
-                            <div class="pl-12">
-                                <span class="text-cyan-400">name</span><span class="text-white">=</span><span class="text-green-400">"Josephat Mwagongo"</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">8</span>
-                            <div class="pl-12">
-                                <span class="text-cyan-400">role</span><span class="text-white">=</span><span class="text-green-400">"Full Stack Developer"</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">9</span>
-                            <div class="pl-12">
-                                <span class="text-cyan-400">passion</span><span class="text-white">=</span><span class="text-green-400">"Building Solutions That Matter"</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">10</span>
-                            <div class="pl-8">
-                                <span class="text-yellow-100">/&gt;</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">11</span>
-                            <div class="pl-4">
-                                <span class="text-blue-400">)</span><span class="text-slate-400">;</span>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">12</span>
-                            <div class="text-yellow-100">}</div>
-                        </div>
-                        <div class="flex">
-                            <span class="text-slate-600 select-none w-8 text-right pr-4">13</span>
-                            <div><span class="text-yellow-100">;</span></div>
-                        </div>
-                    </div>
 
-                    <!-- Action Buttons -->
-                    <div class="relative z-10 p-6 flex gap-4 border-t border-slate-800">
-                        <button class="px-6 py-3 bg-orange-500/10 border border-orange-500/30 text-orange-400 rounded-md flex items-center gap-2 hover:bg-orange-500/20 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                            Run Profile
-                        </button>
-                        <button class="px-6 py-3 bg-slate-700/30 border border-slate-700 text-slate-400 rounded-md flex items-center gap-2 hover:bg-slate-700/50 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                            View Projects
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT SECTION -->
-        <section class="space-y-12">
-            <div class="flex items-center gap-4">
-                <h2 class="text-3xl font-bold text-white font-sans-heading"># About.system</h2>
-                <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Left: Profile Card -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-50 z-0"></div>
-                    <div class="relative z-10 p-8 flex flex-col items-center text-center">
-                        <div class="w-32 h-32 rounded-full border-4 border-orange-500 p-1 mb-6 flex items-center justify-center">
-                            <img src="https://avatars.githubusercontent.com/u/196078270?v=4" alt="Josephat Mwagongo" class="rounded-full w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-2xl font-bold text-white font-sans-heading mb-2">Josephat Mwagongo</h3>
-                        <p class="text-orange-500 text-lg font-medium mb-6">&lt;Full Stack Developer /&gt;</p>
-
-                        <div class="grid grid-cols-2 gap-4 w-full max-w-xs">
-                            <div class="bg-slate-800/50 p-3 rounded-md text-sm">                            <span class="text-slate-400">Experience</span>
-                                <p class="text-white font-bold">2+ Yrs</p>                            </div>
-                            <div class="bg-slate-800/50 p-3 rounded-md text-sm">
-                             <span class="text-slate-400">Projects</span>
-                                <p class="text-white font-bold">74 Repos</p>                          </div>
-                        </div>
-
-                        <div class="mt-8 w-full">
-                            <p class="text-slate-400 text-sm mb-2">STATUS:</p>
-                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium">
-                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                OPEN FOR WORK
-                            </span>
+                        <!-- Action Buttons -->
+                        <div class="relative z-10 p-6 flex gap-4 border-t border-slate-800">
+                            <button
+                                class="px-6 py-3 bg-orange-500/10 border border-orange-500/30 text-orange-400 rounded-md flex items-center gap-2 hover:bg-orange-500/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                Run Profile
+                            </button>
+                            <button
+                                class="px-6 py-3 bg-slate-700/30 border border-slate-700 text-slate-400 rounded-md flex items-center gap-2 hover:bg-slate-700/50 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                                View Projects
+                            </button>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Right: Terminal Log -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-orange-500/10 blur-xl opacity-50 z-0"></div>
-                    <div class="relative z-10 p-8 space-y-6">
-                        <div class="flex items-center gap-2 text-slate-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                            <span class="font-mono text-sm">_user_profile.log</span>
+            <!-- ABOUT SECTION -->
+            <section class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading"># About.system</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Left: Profile Card -->
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-50 z-0">
                         </div>
+                        <div class="relative z-10 p-8 flex flex-col items-center text-center">
+                            <div
+                                class="w-32 h-32 rounded-full border-4 border-orange-500 p-1 mb-6 flex items-center justify-center">
+                                <img src="https://avatars.githubusercontent.com/u/196078270?v=4" alt="Josephat Mwagongo"
+                                    class="rounded-full w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white font-sans-heading mb-2">Josephat Mwagongo</h3>
+                            <p class="text-orange-500 text-lg font-medium mb-6">&lt;Full Stack Developer /&gt;</p>
+
+                            <div class="grid grid-cols-2 gap-4 w-full max-w-xs">
+                                <div class="bg-slate-800/50 p-3 rounded-md text-sm"> <span
+                                        class="text-slate-400">Experience</span>
+                                    <p class="text-white font-bold">2+ Yrs</p>
+                                </div>
+                                <div class="bg-slate-800/50 p-3 rounded-md text-sm">
+                                    <span class="text-slate-400">Projects</span>
+                                    <p class="text-white font-bold">74 Repos</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 w-full">
+                                <p class="text-slate-400 text-sm mb-2">STATUS:</p>
+                                <span
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium">
+                                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                    OPEN FOR WORK
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Terminal Log -->
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-orange-500/10 blur-xl opacity-50 z-0">
+                        </div>
+                        <div class="relative z-10 p-8 space-y-6">
+                            <div class="flex items-center gap-2 text-slate-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="4 17 10 11 4 5"></polyline>
+                                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                                </svg>
+                                <span class="font-mono text-sm">_user_profile.log</span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <p class="flex items-start gap-2">
+                                    <span class="text-orange-500">→</span>
+                                    <span>
+                                        <span class="text-white font-medium">whoami</span>
+                                        <br>
+                                        <span class="text-slate-400 text-sm">
+                                            Backend programmer with expertise in Python, TypeScript, and Java.
+                                            Passionate about building scalable applications and solving complex
+                                            technical challenges through code.
+                                        </span>
+                                    </span>
+                                </p>
+                                <p class="flex items-start gap-2">
+                                    <span class="text-orange-500">→</span>
+                                    <span>
+                                        <span class="text-white font-medium">cat mission.txt</span>
+                                        <br>
+                                        <span class="text-slate-400 text-sm">
+                                            Focused on creating robust backend solutions and AI-driven applications.
+                                            Experienced in Python-based AI agents, TypeScript full-stack development,
+                                            and Java enterprise systems.
+                                        </span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS SECTION -->
+            <section class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading"># Skills.json</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skill Category 1 -->
+                    <div
+                        class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                        </div>
+                        <div class="relative z-10 p-6 space-y-4">
+                            <div class="flex items-center gap-3 text-orange-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <h3 class="text-xl font-bold font-sans-heading">Backend Development</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm">Building robust and scalable server-side applications.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Node.js</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Express.js</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">NestJS</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Spring
+                                    Boot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 2 -->
+                    <div
+                        class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                        </div>
+                        <div class="relative z-10 p-6 space-y-4">
+                            <div class="flex items-center gap-3 text-orange-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <h3 class="text-xl font-bold font-sans-heading">Frontend Development</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm">Crafting engaging and responsive user interfaces.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Next.js</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Tailwind
+                                    CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Category 3 -->
+                    <div
+                        class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                        </div>
+                        <div class="relative z-10 p-6 space-y-4">
+                            <div class="flex items-center gap-3 text-orange-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <h3 class="text-xl font-bold font-sans-heading">Databases & DevOps</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm">Managing data and deploying applications efficiently.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">MongoDB</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Docker</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Git</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE SECTION -->
+            <section class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading">$ git log --stat --oneline</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="relative pl-8">
+                    <div class="absolute left-0 top-0 bottom-0 w-px bg-slate-700"></div>
+
+                    <!-- Experience Item 1 -->
+                    <div class="relative mb-12 last:mb-0">
+                        <div
+                            class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10">
+                        </div>
+                        <div class="ml-8 space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">a1b2ca2</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-green-500/10 border border-green-500/30 rounded text-green-400">HEAD
+                                    → engineer</span>
+                                <span class="text-sm text-slate-500">2024 - Present</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white font-sans-heading">Full Stack Engineer</h3>
+                            <p class="text-orange-500 text-lg font-medium">@ EboSoft Solutions</p>
+                            <p class="text-slate-400 max-w-2xl">Leading development of scalable web applications with
+                                focus on performance and reliability.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Next.js</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">NestJS</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Spring
+                                    Boot</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">MongoDB</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AWS</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Docker</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Git</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Jira</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Figma</span>
+                            </div>
+                            <div class="text-sm text-green-400 font-mono">11 files changed | +100 insertions | -10
+                                deletions</div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="relative mb-12 last:mb-0">
+                        <div
+                            class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10">
+                        </div>
+                        <div class="ml-8 space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">a1b2ca1</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-blue-500/10 border border-blue-500/30 rounded text-blue-400">HEAD
+                                    → developer</span>
+                                <span class="text-sm text-slate-500">2022 - 2024</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white font-sans-heading">Full Stack Developer</h3>
+                            <p class="text-orange-500 text-lg font-medium">@ Freelance - Upwork/ Fiverr</p>
+                            <p class="text-slate-400 max-w-2xl">Developed and maintained web applications</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Express</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
+                            </div>
+                            <div class="text-sm text-green-400 font-mono">4 files changed | +120 insertions | -15
+                                deletions</div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 3 -->
+                    <div class="relative mb-12 last:mb-0">
+                        <div
+                            class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10">
+                        </div>
+                        <div class="ml-8 space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">initial</span>
+                                <span
+                                    class="px-3 py-1 text-xs font-mono bg-blue-500/10 border border-blue-500/30 rounded text-blue-400">HEAD
+                                    → main</span>
+                                <span class="text-sm text-slate-500">2020 - 2022</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white font-sans-heading">Junior Developer</h3>
+                            <p class="text-orange-500 text-lg font-medium">@ Self-Taught</p>
+                            <p class="text-slate-400 max-w-2xl">Started my journey in software development, learning
+                                fundamentals of programming and building small projects.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">HTML</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">CSS</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
+                                <span
+                                    class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
+                            </div>
+                            <div class="text-sm text-green-400 font-mono">5 files changed | +50 insertions | -0
+                                deletions</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-slate-500">Initial Commit (Hello World)</span>
+                        <div class="flex-grow h-px bg-slate-700"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS SECTION -->
+            <section class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading">$ ls -la ~/projects</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Pinned Projects -->
+                    <div class="space-y-8">
+                        <h3 class="text-xl font-bold text-white font-sans-heading">Pinned Projects</h3>
+                        <div class="space-y-6">
+                            <!-- Project 1 -->
+                            <div
+                                class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                                </div>
+                                <div class="relative z-10 p-6 space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-3 text-orange-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07">
+                                                </path>
+                                            </svg>
+                                            <h4 class="text-lg font-bold font-sans-heading">VizPrompts</h4>
+                                        </div>
+                                        <span
+                                            class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                    </div>
+                                    <p class="text-slate-400 text-sm">AI studio for creating and managing visual
+                                        prompts. A TypeScript-based full-stack application for designing and sharing
+                                        AI-powered visual content.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Node.js</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>TypeScript</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5">
+                                                </path>
+                                            </svg>12</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>5</span>
+                                        <a href="https://github.com/ja154/VizPrompts1.0"
+                                            class="text-orange-500 hover:underline">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div
+                                class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                                </div>
+                                <div class="relative z-10 p-6 space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-3 text-orange-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07">
+                                                </path>
+                                            </svg>
+                                            <h4 class="text-lg font-bold font-sans-heading">Python AI Agent</h4>
+                                        </div>
+                                        <span
+                                            class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                    </div>
+                                    <p class="text-slate-400 text-sm">Advanced Python-based AI agent for automating
+                                        complex tasks. Demonstrates expertise in AI/ML integration, task automation, and
+                                        intelligent system design.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AI/ML</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Automation</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Task
+                                            Processing</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>Python</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5">
+                                                </path>
+                                            </svg>8</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>3</span>
+                                        <a href="https://github.com/ja154/python-based-AI-agent"
+                                            class="text-orange-500 hover:underline">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3 -->
+                            <div
+                                class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0">
+                                </div>
+                                <div class="relative z-10 p-6 space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-3 text-orange-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07">
+                                                </path>
+                                            </svg>
+                                            <h4 class="text-lg font-bold font-sans-heading">UI Muse</h4>
+                                        </div>
+                                        <span
+                                            class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                    </div>
+                                    <p class="text-slate-400 text-sm">UI cloner tool for rapid UI development. Built
+                                        with TypeScript, this tool enables developers to clone and adapt UI designs
+                                        efficiently.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">UI
+                                            Design</span>
+                                        <span
+                                            class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Web
+                                            Development</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>TypeScript</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5">
+                                                </path>
+                                            </svg>6</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="inline-block mr-1">
+                                                <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            </svg>2</span>
+                                        <a href="https://github.com/ja154/ui-muse"
+                                            class="text-orange-500 hover:underline">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repositories List -->
+                    <div class="space-y-8">
+                        <h3 class="text-xl font-bold text-white font-sans-heading">Repositories</h3>
+                        <div class="space-y-4">
+                            <!-- Repo 1 -->
+                            <a href="https://github.com/ja154/VizPrompts1.0" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        VizPrompts</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>TypeScript</span>
+                                    <span>AI studio for visual prompts</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 2 -->
+                            <a href="https://github.com/ja154/python-based-AI-agent" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        Python AI Agent</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>Python</span>
+                                    <span>Advanced automation</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 3 -->
+                            <a href="https://github.com/ja154/ui-muse" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        UI Muse</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>TypeScript</span>
+                                    <span>UI cloner tool</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 4 -->
+                            <a href="https://github.com/ja154/crypto-site" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        Crypto Site</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>TypeScript</span>
+                                    <span>Crypto tracking platform</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 5 -->
+                            <a href="https://github.com/ja154/graphic-generator-" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        Graphic Generator</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>Python</span>
+                                    <span>Updated 1 months ago</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 6 -->
+                            <a href="https://github.com/ja154/prtfo" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        prtfo</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>HTML</span>
+                                    <span>Personal portfolio v2</span>
+                                </div>
+                            </a>
+
+                            <!-- Repo 7 -->
+                            <a href="https://github.com/ja154/java-" target="_blank"
+                                class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4
+                                        class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
+                                        java-</h4>
+                                    <span
+                                        class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1">
+                                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>Java</span>
+                                    <span>Java projects</span>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/ja154?tab=repositories" target="_blank"
+                                class="block text-center text-orange-500 hover:underline font-bold text-sm">View
+                                all repositories</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT SECTION -->
+            <section class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading">$ contact.sh</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Left: Contact Info -->
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-orange-500">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            <h3 class="text-xl font-bold text-white font-sans-heading">Let's Connect</h3>
+                        </div>
+                        <p class="text-slate-400 max-w-md">Backend programmer ready to work with you on various
+                            freelance projects. Based in Kenya, Nairobi. Always open to new opportunities and
+                            collaborations.</p>
 
                         <div class="space-y-4">
-                            <p class="flex items-start gap-2">
-                                <span class="text-orange-500">→</span>
-                                <span>
-                                    <span class="text-white font-medium">whoami</span>
-                                    <br>
-                                    <span class="text-slate-400 text-sm">
-                                        Backend programmer with expertise in Python, TypeScript, and Java. Passionate about building scalable applications and solving complex technical challenges through code.
-                                    </span>
-                                </span>
-                            </p>
-                            <p class="flex items-start gap-2">
-                                <span class="text-orange-500">→</span>
-                                <span>
-                                    <span class="text-white font-medium">cat mission.txt</span>
-                                    <br>
-                                    <span class="text-slate-400 text-sm">
-                                        Focused on creating robust backend solutions and AI-driven applications. Experienced in Python-based AI agents, TypeScript full-stack development, and Java enterprise systems.
-                                    </span>
-                                </span>
-                            </p>
+                            <div class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-orange-500">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <a href="mailto:jmwanguwe3@gmail.com"
+                                    class="text-slate-300 hover:text-orange-500 transition-colors">jmwanguwe3@gmail.com</a>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-orange-500">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2.008 29.72 29.72 0 0 1-8.62-2.008 29.72 29.72 0 0 1-8.62-2.008A2 2 0 0 1 2 19.92v-3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v4.5a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z">
+                                    </path>
+                                </svg>
+                                <a href="tel:+254700000000"
+                                    class="text-slate-300 hover:text-orange-500 transition-colors">+254 700 000000</a>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-orange-500">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                                <a href="https://www.github.com/ja154" target="_blank"
+                                    class="text-slate-300 hover:text-orange-500 transition-colors">@ja154</a>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-orange-500">
+                                    <path
+                                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2 1.1-.5 1.7-1.2 3.4-2 1.7-.9 3.2-1.9 4.6-3.6 1.4-1.7 2.3-3.7 2.8-5.7C20.8 7.5 22 4 22 4z">
+                                    </path>
+                                </svg>
+                                <a href="https://twitter.com/ja154" target="_blank"
+                                    class="text-slate-300 hover:text-orange-500 transition-colors">@ja154</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SKILLS SECTION -->
-        <section class="space-y-12">
-            <div class="flex items-center gap-4">
-                <h2 class="text-3xl font-bold text-white font-sans-heading"># Skills.json</h2>
-                <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-            </div>
+                    <!-- Right: Contact Form -->
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-orange-500/10 blur-xl opacity-50 z-0">
+                        </div>
+                        <div class="relative z-10 p-8 space-y-6">
+                            <div class="flex items-center gap-2 text-slate-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="4 17 10 11 4 5"></polyline>
+                                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                                </svg>
+                                <span class="font-mono text-sm">_contact_form.sh</span>
+                            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Skill Category 1 -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                    <div class="relative z-10 p-6 space-y-4">
-                        <div class="flex items-center gap-3 text-orange-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                            <h3 class="text-xl font-bold font-sans-heading">Backend Development</h3>
-                        </div>
-                        <p class="text-slate-400 text-sm">Building robust and scalable server-side applications.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Node.js</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Express.js</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">NestJS</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Spring Boot</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Category 2 -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                    <div class="relative z-10 p-6 space-y-4">
-                        <div class="flex items-center gap-3 text-orange-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                            <h3 class="text-xl font-bold font-sans-heading">Frontend Development</h3>
-                        </div>
-                        <p class="text-slate-400 text-sm">Crafting engaging and responsive user interfaces.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Next.js</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Category 3 -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                    <div class="relative z-10 p-6 space-y-4">
-                        <div class="flex items-center gap-3 text-orange-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                            <h3 class="text-xl font-bold font-sans-heading">Databases & DevOps</h3>
-                        </div>
-                        <p class="text-slate-400 text-sm">Managing data and deploying applications efficiently.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">MongoDB</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Docker</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Git</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AWS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION -->
-        <section class="space-y-12">
-            <div class="flex items-center gap-4">
-                <h2 class="text-3xl font-bold text-white font-sans-heading">$ git log --stat --oneline</h2>
-                <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-            </div>
-
-            <div class="relative pl-8">
-                <div class="absolute left-0 top-0 bottom-0 w-px bg-slate-700"></div>
-
-                <!-- Experience Item 1 -->
-                <div class="relative mb-12 last:mb-0">
-                    <div class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10"></div>
-                    <div class="ml-8 space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">a1b2ca2</span>
-                            <span class="px-3 py-1 text-xs font-mono bg-green-500/10 border border-green-500/30 rounded text-green-400">HEAD → engineer</span>
-                            <span class="text-sm text-slate-500">2024 - Present</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white font-sans-heading">Full Stack Engineer</h3>
-                        <p class="text-orange-500 text-lg font-medium">@ EboSoft Solutions</p>
-                        <p class="text-slate-400 max-w-2xl">Leading development of scalable web applications with focus on performance and reliability.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Next.js</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">NestJS</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Spring Boot</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">MongoDB</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AWS</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Docker</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Git</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Jira</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Figma</span>
-                        </div>
-                        <div class="text-sm text-green-400 font-mono">11 files changed | +100 insertions | -10 deletions</div>
-                    </div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative mb-12 last:mb-0">
-                    <div class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10"></div>
-                    <div class="ml-8 space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">a1b2ca1</span>
-                            <span class="px-3 py-1 text-xs font-mono bg-blue-500/10 border border-blue-500/30 rounded text-blue-400">HEAD → developer</span>
-                            <span class="text-sm text-slate-500">2022 - 2024</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white font-sans-heading">Full Stack Developer</h3>
-                        <p class="text-orange-500 text-lg font-medium">@ Freelance - Upwork/ Fiverr</p>
-                        <p class="text-slate-400 max-w-2xl">Developed and maintained web applications</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Express</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
-                        </div>
-                        <div class="text-sm text-green-400 font-mono">4 files changed | +120 insertions | -15 deletions</div>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative mb-12 last:mb-0">
-                    <div class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-orange-500 border-4 border-[#111111] z-10"></div>
-                    <div class="ml-8 space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">initial</span>
-                            <span class="px-3 py-1 text-xs font-mono bg-blue-500/10 border border-blue-500/30 rounded text-blue-400">HEAD → main</span>
-                            <span class="text-sm text-slate-500">2020 - 2022</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white font-sans-heading">Junior Developer</h3>
-                        <p class="text-orange-500 text-lg font-medium">@ Self-Taught</p>
-                        <p class="text-slate-400 max-w-2xl">Started my journey in software development, learning fundamentals of programming and building small projects.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">HTML</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">CSS</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">JavaScript</span>
-                            <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
-                        </div>
-                        <div class="text-sm text-green-400 font-mono">5 files changed | +50 insertions | -0 deletions</div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <span class="text-sm text-slate-500">Initial Commit (Hello World)</span>
-                    <div class="flex-grow h-px bg-slate-700"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section class="space-y-12">
-            <div class="flex items-center gap-4">
-                <h2 class="text-3xl font-bold text-white font-sans-heading">$ ls -la ~/projects</h2>
-                <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Pinned Projects -->
-                <div class="space-y-8">
-                    <h3 class="text-xl font-bold text-white font-sans-heading">Pinned Projects</h3>
-                    <div class="space-y-6">
-                        <!-- Project 1 -->
-                        <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                            <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                            <div class="relative z-10 p-6 space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3 text-orange-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07"></path></svg>
-                                        <h4 class="text-lg font-bold font-sans-heading">VizPrompts</h4>
-                                    </div>
-                                    <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
+                            <form action="/send" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="name"
+                                        class="block text-sm font-medium text-slate-400 mb-2">Name:</label>
+                                    <input type="text" id="name" name="name"
+                                        class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white"
+                                        placeholder="Your Name" required>
                                 </div>
-                                <p class="text-slate-400 text-sm">AI studio for creating and managing visual prompts. A TypeScript-based full-stack application for designing and sharing AI-powered visual content.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Node.js</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">PostgreSQL</span>
+                                <div>
+                                    <label for="email"
+                                        class="block text-sm font-medium text-slate-400 mb-2">Email:</label>
+                                    <input type="email" id="email" name="email"
+                                        class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white"
+                                        placeholder="your@email.com" required>
                                 </div>
-                                <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>TypeScript</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>12</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>5</span>
-                                    <a href="https://github.com/ja154/VizPrompts1.0" class="text-orange-500 hover:underline">View</a>
+                                <div>
+                                    <label for="message"
+                                        class="block text-sm font-medium text-slate-400 mb-2">Message:</label>
+                                    <textarea id="message" name="message" rows="5"
+                                        class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white"
+                                        placeholder="Your message..." required></textarea>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 2 -->
-                        <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                            <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                            <div class="relative z-10 p-6 space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3 text-orange-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07"></path></svg>
-                                        <h4 class="text-lg font-bold font-sans-heading">Python AI Agent</h4>
-                                    </div>
-                                    <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                                </div>
-                                <p class="text-slate-400 text-sm">Advanced Python-based AI agent for automating complex tasks. Demonstrates expertise in AI/ML integration, task automation, and intelligent system design.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Python</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">AI/ML</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Automation</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Task Processing</span>
-                                </div>
-                                <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Python</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>8</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>3</span>
-                                    <a href="https://github.com/ja154/python-based-AI-agent" class="text-orange-500 hover:underline">View</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 3 -->
-                        <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
-                            <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
-                            <div class="relative z-10 p-6 space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3 text-orange-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.4 17.6l2.12-2.12m-9.19-3.53a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L3.34 16.56l7.07-7.07"></path></svg>
-                                        <h4 class="text-lg font-bold font-sans-heading">UI Muse</h4>
-                                    </div>
-                                    <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                                </div>
-                                <p class="text-slate-400 text-sm">UI cloner tool for rapid UI development. Built with TypeScript, this tool enables developers to clone and adapt UI designs efficiently.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">TypeScript</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">React</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">UI Design</span>
-                                    <span class="px-3 py-1 text-xs border border-slate-700 text-slate-400 bg-slate-800 rounded">Web Development</span>
-                                </div>
-                                <div class="flex items-center justify-between text-slate-500 text-sm font-mono">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>TypeScript</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>6</span>
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2</span>
-                                    <a href="https://github.com/ja154/ui-muse" class="text-orange-500 hover:underline">View</a>
-                                </div>
-                            </div>
+                                <button type="submit"
+                                    class="w-full px-6 py-3 bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"
+                                    onclick="this.form.submit(); return false;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                    Send Message
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Repositories List -->
-                <div class="space-y-8">
-                    <h3 class="text-xl font-bold text-white font-sans-heading">Repositories</h3>
-                    <div class="space-y-4">
-                        <!-- Repo 1 -->
-                        <a href="https://github.com/ja154/VizPrompts1.0" target="_blank" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">VizPrompts</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>TypeScript</span>
-                                <span>AI studio for visual prompts</span>
-                            </div>
-                        </a>
+        </main>
 
-                        <!-- Repo 2 -->
-                        <a href="https://github.com/ja154/python-based-AI-agent" target="_blank" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">Python AI Agent</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Python</span>
-                                <span>Advanced automation</span>
-                            </div>
-                        </a>
-
-                        <!-- Repo 3 -->
-                        <a href="https://github.com/ja154/ui-muse" target="_blank" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">UI Muse</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>TypeScript</span>
-                                <span>UI cloner tool</span>
-                            </div>
-                        </a>
-
-                        <!-- Repo 4 -->
-                        <a href="https://github.com/ja154/crypto-site" target="_blank" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">Crypto Site</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>TypeScript</span>
-                                <span>Crypto tracking platform</span>
-                            </div>
-                        </a>
-
-                        <!-- Repo 5 -->
-                        <a href="https://github.com/ja154/graphic-generator-" target="_blank" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">Graphic Generator</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Python</span>
-                                <span>Updated 1 months ago</span>
-                            </div>
-                        </a>
-
-                        <!-- Repo 6 -->
-                        <a href="#" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">momin-786.github.io</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span>Updated 2 months ago</span>
-                            </div>
-                        </a>
-
-                        <!-- Repo 7 -->
-                        <a href="#" class="block p-4 bg-[#1a1a1a] border border-slate-700 rounded hover:bg-slate-800 hover:border-orange-500/50 transition-colors group">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">eshop-_flutter_project</h4>
-                                <span class="px-2 py-0.5 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">Public</span>
-                            </div>
-                            <div class="flex items-center gap-4 text-slate-500 text-sm font-mono">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mr-1"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Dart</span>
-                                <span>Updated 4 months ago</span>
-                            </div>
-                        </a>
-
-                        <a href="#" class="block text-center text-orange-500 hover:underline font-bold text-sm">View all repositories</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section class="space-y-12">
-            <div class="flex items-center gap-4">
-                <h2 class="text-3xl font-bold text-white font-sans-heading">$ contact.sh</h2>
-                <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Left: Contact Info -->
-                <div class="space-y-8">
-                    <div class="flex items-center gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                        <h3 class="text-xl font-bold text-white font-sans-heading">Let's Connect</h3>
-                    </div>
-                    <p class="text-slate-400 max-w-md">Backend programmer ready to work with you on various freelance projects. Based in Kenya, Nairobi. Always open to new opportunities and collaborations.</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            <a href="mailto:jmwanguwe3@gmail.com" class="text-slate-300 hover:text-orange-500 transition-colors">jmwanguwe3@gmail.com</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M22 16.92v3a2 2 0 0 1-2.18 2.008 29.72 29.72 0 0 1-8.62-2.008 29.72 29.72 0 0 1-8.62-2.008A2 2 0 0 1 2 19.92v-3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v4.5a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path></svg>
-                            <a href="tel:+254700000000" class="text-slate-300 hover:text-orange-500 transition-colors">+254 700 000000</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                            <a href="https://www.github.com/ja154" target="_blank" class="text-slate-300 hover:text-orange-500 transition-colors">@ja154</a>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2 1.1-.5 1.7-1.2 3.4-2 1.7-.9 3.2-1.9 4.6-3.6 1.4-1.7 2.3-3.7 2.8-5.7C20.8 7.5 22 4 22 4z"></path></svg>
-                            <a href="https://twitter.com/ja154" target="_blank" class="text-slate-300 hover:text-orange-500 transition-colors">@ja154</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Contact Form -->
-                <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-2xl relative overflow-hidden">
-                    <div class="absolute -inset-1 bg-gradient-to-br from-blue-500/10 to-orange-500/10 blur-xl opacity-50 z-0"></div>
-                    <div class="relative z-10 p-8 space-y-6">
-                        <div class="flex items-center gap-2 text-slate-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-                            <span class="font-mono text-sm">_contact_form.sh</span>
-                        </div>
-
-                        <form action="/send" method="POST" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-400 mb-2">Name:</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white" placeholder="Your Name" required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-slate-400 mb-2">Email:</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white" placeholder="your@email.com" required>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-slate-400 mb-2">Message:</label>
-                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white" placeholder="Your message..." required></textarea>
-                            </div>
-                            <button type="submit" class="w-full px-6 py-3 bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 transition-colors flex items-center justify-center gap-2" onclick="this.form.submit(); return false;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="text-center py-12 text-slate-500 text-sm">
-        <p>&copy; 2025 Josephat Mwagongo. All rights reserved.</p>
-        <p>Built with <span class="text-red-500">❤️</span> and Code</p>
-    </footer>
-</div>
+        <!-- Footer -->
+        <footer class="text-center py-12 text-slate-500 text-sm">
+            <p>&copy; 2025 Josephat Mwagongo. All rights reserved.</p>
+            <p>Built with <span class="text-red-500">❤️</span> and Code</p>
+        </footer>
+    </div>
 </body>
+
 </html>
 
-    <!-- JavaScript for dynamic elements -->
-    <script>
-        // Smooth scrolling for navigation dots
-        document.querySelectorAll(".fixed.right-8 a").forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute("href")).scrollIntoView({
-                    behavior: "smooth"
-                });
+<!-- JavaScript for dynamic elements -->
+<script>
+    // Smooth scrolling for navigation dots
+    document.querySelectorAll(".fixed.right-8 a").forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
             });
         });
+    });
 
-        // Simulate typing effect for hero section (optional, can be added later)
-        // const heroTitle = document.querySelector(".hero-title span");
-        // const text = heroTitle.textContent;
-        // heroTitle.textContent = '';
-        // let i = 0;
-        // function typeWriter() {
-        //     if (i < text.length) {
-        //         heroTitle.textContent += text.charAt(i);
-        //         i++;
-        //         setTimeout(typeWriter, 100);
-        //     }
-        // }
-        // setTimeout(typeWriter, 1000);
+    // Simulate typing effect for hero section (optional, can be added later)
+    // const heroTitle = document.querySelector(".hero-title span");
+    // const text = heroTitle.textContent;
+    // heroTitle.textContent = '';
+    // let i = 0;
+    // function typeWriter() {
+    //     if (i < text.length) {
+    //         heroTitle.textContent += text.charAt(i);
+    //         i++;
+    //         setTimeout(typeWriter, 100);
+    //     }
+    // }
+    // setTimeout(typeWriter, 1000);
 
-        // Intersection Observer for active navigation dots (optional)
-        // const sections = document.querySelectorAll("section");
-        // const navDots = document.querySelectorAll(".fixed.right-8 .w-2");
+    // Intersection Observer for active navigation dots (optional)
+    // const sections = document.querySelectorAll("section");
+    // const navDots = document.querySelectorAll(".fixed.right-8 .w-2");
 
-        // const observer = new IntersectionObserver(entries => {
-        //     entries.forEach(entry => {
-        //         if (entry.isIntersecting) {
-        //             navDots.forEach(dot => dot.classList.remove("bg-orange-500"));
-        //             const targetDot = document.querySelector(`.fixed.right-8 [href='#${entry.target.id}']`);
-        //             if (targetDot) {
-        //                 targetDot.classList.add("bg-orange-500");
-        //             }
-        //         }
-        //     });
-        // }, {
-        //     threshold: 0.5
-        // });
+    // const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             navDots.forEach(dot => dot.classList.remove("bg-orange-500"));
+    //             const targetDot = document.querySelector(`.fixed.right-8 [href='#${entry.target.id}']`);
+    //             if (targetDot) {
+    //                 targetDot.classList.add("bg-orange-500");
+    //             }
+    //         }
+    //     });
+    // }, {
+    //     threshold: 0.5
+    // });
 
-        // sections.forEach(section => {
-        //     observer.observe(section);
-        // });
+    // sections.forEach(section => {
+    //     observer.observe(section);
+    // });
 
-    </script>
+</script>
 </div>
