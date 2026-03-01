@@ -328,36 +328,7 @@
             margin-top: 1rem;
         }
 
-        /* Skills Section */
-        .skills-container {
-            background: var(--card-bg);
-            border: 2px dashed var(--terminal-border);
-            border-radius: 0;
-            padding: 3rem;
-            position: relative;
-            backdrop-filter: blur(10px);
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        #skillsCanvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .skills-label {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-align: center;
-        }
 
         /* Experience Timeline */
         .experience-timeline {
@@ -810,9 +781,96 @@
             <div class="section-header">
                 <h2 class="section-title"># Skills.json</h2>
             </div>
-            <div class="skills-container">
-                <canvas id="skillsCanvas"></canvas>
-                <div class="skills-label">Drag to explore skills universe</div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">🐍 Python</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Backend development, automation, data analysis, and AI/ML applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Django</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">📘 TypeScript</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Type-safe frontend and backend development with modern frameworks.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">📙 JavaScript</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Frontend development, DOM manipulation, and interactive web applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Vue.js</span>
+                            <span class="tech-badge">ES6+</span>
+                            <span class="tech-badge">Webpack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">🗄️ Databases</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Relational and NoSQL database design, optimization, and management.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">SQLite</span>
+                            <span class="tech-badge">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">🐳 DevOps & Tools</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Containerization, version control, CI/CD, and deployment automation.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Git</span>
+                            <span class="tech-badge">GitHub</span>
+                            <span class="tech-badge">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <p class="project-name">☁️ Cloud & APIs</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">Cloud services, REST APIs, microservices, and third-party integrations.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">REST APIs</span>
+                            <span class="tech-badge">GraphQL</span>
+                            <span class="tech-badge">Vercel</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1069,117 +1127,7 @@
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
 <script>
-    // Skills 3D Visualization
-    function initSkillsVisualization() {
-        const canvas = document.getElementById('skillsCanvas');
-        const container = canvas.parentElement;
-        const width = container.clientWidth;
-        const height = container.clientHeight;
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-        renderer.setSize(width, height);
-        renderer.setClearColor(0x000000, 0);
-
-        camera.position.z = 5;
-
-        // Create central sphere
-        const geometry = new THREE.IcosahedronGeometry(1, 4);
-        const material = new THREE.MeshPhongMaterial({
-            color: 0x00d4ff,
-            wireframe: true,
-            emissive: 0x00d4ff,
-            emissiveIntensity: 0.3
-        });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
-
-        // Add lighting
-        const light = new THREE.PointLight(0xffffff, 1);
-        light.position.set(5, 5, 5);
-        scene.add(light);
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
-
-        // Skills data
-        const skills = [
-            { name: 'Python', icon: '🐍' },
-            { name: 'TypeScript', icon: '📘' },
-            { name: 'JavaScript', icon: '📙' },
-            { name: 'React', icon: '⚛️' },
-            { name: 'Node.js', icon: '🟢' },
-            { name: 'Flask', icon: '🔷' },
-            { name: 'PostgreSQL', icon: '🐘' },
-            { name: 'MongoDB', icon: '🍃' },
-            { name: 'Docker', icon: '🐳' },
-            { name: 'Git', icon: '📦' },
-            { name: 'AWS', icon: '☁️' },
-            { name: 'AI/ML', icon: '🤖' }
-        ];
-
-        // Create skill particles
-        const particles = [];
-        skills.forEach((skill, index) => {
-            const angle = (index / skills.length) * Math.PI * 2;
-            const radius = 3;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-            const z = Math.cos(index * 0.5) * 0.5;
-
-            const particleGeometry = new THREE.SphereGeometry(0.2, 8, 8);
-            const particleMaterial = new THREE.MeshPhongMaterial({
-                color: 0xff6b35,
-                emissive: 0xff6b35,
-                emissiveIntensity: 0.5
-            });
-            const particle = new THREE.Mesh(particleGeometry, particleMaterial);
-            particle.position.set(x, y, z);
-            particle.userData = { angle, radius, skill };
-            scene.add(particle);
-            particles.push(particle);
-        });
-
-        // Animation loop
-        let time = 0;
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.005;
-
-            sphere.rotation.x += 0.0005;
-            sphere.rotation.y += 0.001;
-
-            particles.forEach((particle, index) => {
-                const angle = particle.userData.angle + time * 0.5;
-                const radius = particle.userData.radius;
-                particle.position.x = Math.cos(angle) * radius;
-                particle.position.y = Math.sin(angle) * radius;
-                particle.position.z = Math.cos(index * 0.5 + time) * 0.5;
-                particle.rotation.x += 0.01;
-                particle.rotation.y += 0.01;
-            });
-
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const newWidth = container.clientWidth;
-            const newHeight = container.clientHeight;
-            camera.aspect = newWidth / newHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(newWidth, newHeight);
-        });
-    }
-
-    // Initialize skills visualization when DOM is ready
-    document.addEventListener('DOMContentLoaded', initSkillsVisualization);
 
     // Scroll to top functionality
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
