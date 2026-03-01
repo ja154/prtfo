@@ -14,15 +14,24 @@ app.secret_key = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_chang
 database_url = os.getenv("STORAGE_URL") or os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
 
 if database_url:
+    # Handle the postgresql protocol for pg8000
     if database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql+pg8000://", 1)
     elif database_url.startswith("postgresql://"):
         database_url = database_url.replace("postgresql://", "postgresql+pg8000://", 1)
+    
+    # Remove sslmode if it exists in the URL, as pg8000 handles it differently
+    if "sslmode=" in database_url:
+        import re
+        database_url = re.sub(r'[\?&]sslmode=[^&]*', '', database_url)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Connection pooling settings for serverless environments
+# We remove pool_pre_ping if it's causing issues with certain drivers, 
+# but generally it's safe for pg8000.
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-    "pool_pre_ping": True,
     "pool_recycle": 300,
 }
 
@@ -90,8 +99,9 @@ def send_email():
     email_success = False
     email_error = ""
     try:
+        # Check for credentials before attempting to send
         if not app.config.get("MAIL_USERNAME") or not app.config.get("MAIL_PASSWORD"):
-            raise Exception("Email credentials missing in environment variables.")
+            raise Exception("Email credentials missing in Vercel environment variables.")
 
         msg = Message(
             subject   = f"Portfolio Contact | {name}",
@@ -109,13 +119,13 @@ def send_email():
     if email_success and db_success:
         flash("Thanks! Your message has been sent and saved ✔", "success")
     elif email_success:
-        flash(f"Message sent, but database storage failed: {db_error}", "warning")
+        flash(f"Message sent! (Database storage had a minor issue, but I received your email) ✔", "warning")
     elif db_success:
-        flash(f"Message saved, but email failed: {email_error}", "warning")
+        flash(f"Message saved! (Email failed to send, but I'll see it in my database) ✔", "warning")
     else:
-        # Both failed
-        error_msg = f"Sorry, there was an error. DB: {db_error[:50]}... Email: {email_error[:50]}..."
-        flash(error_msg, "danger")
+        # Both failed - provide a cleaner error message
+        flash("Sorry, there was a temporary error. Please try again in a few minutes.", "danger")
+        print(f"DEBUG - DB: {db_error} | Email: {email_error}")
 
     return redirect(url_for("my_home") + "#section_5")
 
