@@ -2,3 +2,5 @@ Flask
 Flask-Mail
 python-dotenv
 gunicorn
+Flask-SQLAlchemy
+psycopg2-binary
