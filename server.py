@@ -24,7 +24,7 @@ print("MAIL_USERNAME       =", app.config.get("MAIL_USERNAME"))
 
 mail = Mail(app)
 RECIPIENT = os.getenv("MAIL_RECIPIENT", "jmwanguwe3@gmail.com")
-LOG_PATH = Path("messages.log")
+LOG_PATH = Path("/tmp/messages.log")
 
 def write_to_file(data: dict):
     data["timestamp_utc"] = datetime.utcnow().isoformat(timespec="seconds")
