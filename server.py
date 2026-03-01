@@ -1,4 +1,4 @@
-import os, json
+import os, json, traceback
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_mail import Mail, Message
@@ -11,8 +11,6 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_changed")
 
 # Database Configuration
-# Vercel provides STORAGE_URL or POSTGRES_URL.
-# We use pg8000 as the driver for better serverless compatibility.
 database_url = os.getenv("STORAGE_URL") or os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
 
 if database_url:
@@ -23,7 +21,6 @@ if database_url:
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# Add connection pooling settings for serverless environments
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "pool_pre_ping": True,
     "pool_recycle": 300,
@@ -53,7 +50,6 @@ class ContactMessage(db.Model):
     message = db.Column(db.Text, nullable=False)
     timestamp_utc = db.Column(db.DateTime, default=datetime.utcnow)
 
-# Function to safely initialize the database on the first request
 @app.before_request
 def create_tables():
     if not hasattr(app, '_db_initialized'):
@@ -62,8 +58,7 @@ def create_tables():
                 db.create_all()
                 app._db_initialized = True
             except Exception as e:
-                print(f"Lazy database initialization error: {e}")
-                # Don't set _db_initialized so we can try again later
+                print(f"Database init error: {e}")
 
 @app.route("/")
 def my_home():
@@ -79,8 +74,8 @@ def send_email():
         flash("Please fill in every field.", "danger")
         return redirect(url_for("my_home") + "#section_5")
 
-    # Try to store in database if configured
     db_success = False
+    db_error = ""
     if app.config['SQLALCHEMY_DATABASE_URI']:
         try:
             new_msg = ContactMessage(name=name, email=email, message=message)
@@ -88,11 +83,16 @@ def send_email():
             db.session.commit()
             db_success = True
         except Exception as exc:
-            print("Database storage error:", exc)
+            db_error = str(exc)
+            print(f"Database error: {db_error}")
             db.session.rollback()
 
-    # Always try to send email regardless of DB status
+    email_success = False
+    email_error = ""
     try:
+        if not app.config.get("MAIL_USERNAME") or not app.config.get("MAIL_PASSWORD"):
+            raise Exception("Email credentials missing in environment variables.")
+
         msg = Message(
             subject   = f"Portfolio Contact | {name}",
             sender    = app.config.get("MAIL_DEFAULT_SENDER"),
@@ -101,18 +101,21 @@ def send_email():
             body      = f"Name: {name}\nEmail: {email}\n\n{message}"
         )
         mail.send(msg)
-        
-        if db_success:
-            flash("Thanks! Your message has been sent and saved ✔", "success")
-        else:
-            flash("Thanks! Your message has been sent (local storage failed) ✔", "warning")
-            
+        email_success = True
     except Exception as exc:
-        print("Email sending error:", exc)
-        if db_success:
-            flash("Message saved, but email failed to send. I'll check it later!", "warning")
-        else:
-            flash("There was an error sending your message. Please try again later.", "danger")
+        email_error = str(exc)
+        print(f"Email error: {email_error}")
+
+    if email_success and db_success:
+        flash("Thanks! Your message has been sent and saved ✔", "success")
+    elif email_success:
+        flash(f"Message sent, but database storage failed: {db_error}", "warning")
+    elif db_success:
+        flash(f"Message saved, but email failed: {email_error}", "warning")
+    else:
+        # Both failed
+        error_msg = f"Sorry, there was an error. DB: {db_error[:50]}... Email: {email_error[:50]}..."
+        flash(error_msg, "danger")
 
     return redirect(url_for("my_home") + "#section_5")
 
