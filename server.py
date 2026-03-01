@@ -13,7 +13,7 @@ app.secret_key = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_chang
 # Database Configuration
 # Vercel provides POSTGRES_URL when using its PostgreSQL integration.
 # We fall back to DATABASE_URL or a local postgres instance.
-database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
+database_url = os.getenv("STORAGE_URL") or os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL")
 
 if database_url and database_url.startswith("postgres://"):
     # SQLAlchemy requires "postgresql://" instead of "postgres://"
