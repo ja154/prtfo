@@ -6,3 +6,31 @@ messages.log
 
 # Python cache
 __pycache__/
+*.pyc
+*.pyo
+
+# Python virtual environment (THIS was causing the 1k source control count!)
+venv/
+.venv/
+env/
+
+# Node modules
+node_modules/
+
+# Requirements file (auto-generated)
+requirements.txt
+
+# Flask instance folder
+instance/
+
+# Temporary / scratch scripts
+refactor_ui.py
+replace_contact.py
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Agent workspace
+.agent/
