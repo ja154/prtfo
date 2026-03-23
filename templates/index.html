@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="/static/images/196078270 (1).jpeg">
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='images/196078270 (1).jpeg') }}">
     <title>Josephat Mwagongo - Full Stack Developer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -130,10 +130,9 @@
                     <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
             </a>
-            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
-            <div class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors"></div>
+            <a href="#" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Home"></a>
+            <a href="#certificates" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Certificates"></a>
+            <a href="#contact" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Contact"></a>
         </div>
 
         <!-- Main Container -->
@@ -1110,6 +1109,58 @@
                             <a href="https://github.com/ja154?tab=repositories" target="_blank"
                                 class="block text-center text-orange-500 hover:underline font-bold text-sm">View
                                 all repositories</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CERTIFICATES SECTION -->
+            <section id="certificates" class="space-y-12">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl font-bold text-white font-sans-heading">$ ls -la ~/certificates</h2>
+                    <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Certificate 1 -->
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                        <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
+                        <div class="relative z-10 p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3 text-orange-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    <h4 class="text-lg font-bold font-sans-heading">Basic Python Certificate</h4>
+                                </div>
+                                <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">PDF</span>
+                            </div>
+                            <p class="text-slate-400 text-sm">Certification for completing the Basic Python programming course, covering fundamental concepts and syntax.</p>
+                            <div class="pt-4">
+                                <a href="{{ url_for('static', filename='basic-python-certificate.pdf') }}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 text-orange-500 border border-orange-500/30 rounded hover:bg-orange-500 hover:text-white transition-colors text-sm font-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                    View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 2 -->
+                    <div class="rounded-lg bg-[#151515] border border-slate-800 shadow-xl relative overflow-hidden group hover:border-orange-500 transition-colors">
+                        <div class="absolute -inset-1 bg-gradient-to-br from-orange-500/10 to-blue-500/10 blur-xl opacity-0 group-hover:opacity-50 transition-opacity z-0"></div>
+                        <div class="relative z-10 p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3 text-orange-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    <h4 class="text-lg font-bold font-sans-heading">Intermediate Python Certificate</h4>
+                                </div>
+                                <span class="px-3 py-1 text-xs font-mono bg-slate-800 border border-slate-700 rounded text-slate-400">PDF</span>
+                            </div>
+                            <p class="text-slate-400 text-sm">Certification for advanced Python topics including data structures, algorithms, and object-oriented programming.</p>
+                            <div class="pt-4">
+                                <a href="{{ url_for('static', filename='intermediate-python-certificate.pdf') }}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 text-orange-500 border border-orange-500/30 rounded hover:bg-orange-500 hover:text-white transition-colors text-sm font-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                    View Certificate
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
