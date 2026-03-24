@@ -1,6 +1,6 @@
 import os, json, traceback
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, render_template, request, redirect, flash, url_for, send_from_directory
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -25,7 +25,7 @@ if database_url:
         import re
         database_url = re.sub(r'[\?&]sslmode=[^&]*', '', database_url)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url or "sqlite:///test.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Connection pooling settings for serverless environments
@@ -68,6 +68,11 @@ def create_tables():
                 app._db_initialized = True
             except Exception as e:
                 print(f"Database init error: {e}")
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.jpg', mimetype='image/jpeg')
 
 @app.route("/")
 def my_home():
