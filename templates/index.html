@@ -113,6 +113,21 @@
                 width: 32px;
                 height: 32px;
             }
+
+            .terminal-cursor {
+                display: inline-block;
+                width: 0.5rem;
+                height: 1rem;
+                background-color: #f97316;
+                margin-left: 0.25rem;
+                animation: blink 1s step-end infinite;
+                vertical-align: middle;
+            }
+
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
         </style>
 
         <!-- Background Grid -->
@@ -304,10 +319,10 @@
                         </div>
 
                         <!-- Code Content -->
-                        <div class="relative z-10 p-6 font-mono text-sm leading-relaxed overflow-x-auto">
-                            <div class="text-slate-500 italic mb-2">// Full Stack Developer & Problem Solver</div>
+                        <div id="hero-terminal-body" class="relative z-10 p-6 font-mono text-sm leading-relaxed overflow-x-auto overflow-y-auto h-[400px]">
+                            <div class="terminal-line text-slate-500 italic mb-2 opacity-0 transition-opacity duration-300">// Full Stack Developer & Problem Solver</div>
 
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">2</span>
                                 <div>
                                     <span class="text-purple-400">import</span>
@@ -319,11 +334,11 @@
                                         class="text-slate-400">;</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">3</span>
                                 <div>&nbsp;</div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">4</span>
                                 <div>
                                     <span class="text-purple-400">const</span> <span
@@ -332,58 +347,58 @@
                                         class="text-purple-400">=></span> <span class="text-yellow-100">{</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">5</span>
                                 <div class="pl-4">
                                     <span class="text-purple-400">return</span> <span class="text-blue-400">(</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">6</span>
                                 <div class="pl-8">
                                     <span class="text-yellow-100">&lt;</span><span class="text-red-400">Developer</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">7</span>
                                 <div class="pl-12">
                                     <span class="text-cyan-400">name</span><span class="text-white">=</span><span
                                         class="text-green-400">"Josephat Mwagongo"</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">8</span>
                                 <div class="pl-12">
                                     <span class="text-cyan-400">role</span><span class="text-white">=</span><span
                                         class="text-green-400">"Full Stack Developer"</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">9</span>
                                 <div class="pl-12">
                                     <span class="text-cyan-400">passion</span><span class="text-white">=</span><span
                                         class="text-green-400">"Building Solutions That Matter"</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">10</span>
                                 <div class="pl-8">
                                     <span class="text-yellow-100">/&gt;</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">11</span>
                                 <div class="pl-4">
                                     <span class="text-blue-400">)</span><span class="text-slate-400">;</span>
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">12</span>
                                 <div class="text-yellow-100">}</div>
                             </div>
-                            <div class="flex">
+                            <div class="terminal-line flex opacity-0 transition-opacity duration-300">
                                 <span class="text-slate-600 select-none w-8 text-right pr-4">13</span>
-                                <div><span class="text-yellow-100">;</span></div>
+                                <div><span class="text-yellow-100">;</span><span class="terminal-cursor"></span></div>
                             </div>
                         </div>
 
@@ -474,8 +489,8 @@
                                 <span class="font-mono text-sm">_user_profile.log</span>
                             </div>
 
-                            <div class="space-y-4">
-                                <p class="flex items-start gap-2">
+                            <div id="about-terminal-body" class="space-y-4">
+                                <p class="terminal-line flex items-start gap-2 opacity-0 transition-opacity duration-300">
                                     <span class="text-orange-500">→</span>
                                     <span>
                                         <span class="text-white font-medium">whoami</span>
@@ -487,7 +502,7 @@
                                         </span>
                                     </span>
                                 </p>
-                                <p class="flex items-start gap-2">
+                                <p class="terminal-line flex items-start gap-2 opacity-0 transition-opacity duration-300">
                                     <span class="text-orange-500">→</span>
                                     <span>
                                         <span class="text-white font-medium">cat mission.txt</span>
@@ -497,6 +512,7 @@
                                             Experienced in Python-based AI agents, TypeScript full-stack development,
                                             and Java enterprise systems.
                                         </span>
+                                        <span class="terminal-cursor"></span>
                                     </span>
                                 </p>
                             </div>
@@ -1534,5 +1550,54 @@
 
         animateGlobe();
     }
+
+    // Terminal Animation Function
+    function animateTerminal(containerId, baseDelay = 200) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const lines = container.querySelectorAll('.terminal-line');
+        const cursor = container.querySelector('.terminal-cursor');
+
+        if (cursor) cursor.style.opacity = '0';
+
+        let accumulatedDelay = 0;
+
+        lines.forEach((line, index) => {
+            // Add some randomness to the delay for a more natural feel
+            const randomDelay = baseDelay + (Math.random() * baseDelay * 0.5);
+            accumulatedDelay += randomDelay;
+
+            setTimeout(() => {
+                if (cursor && index === 0) cursor.style.opacity = '1';
+
+                line.classList.remove('opacity-0');
+                line.classList.add('opacity-100');
+
+                // Move cursor to the current line if possible
+                if (cursor) {
+                    const currentLineDiv = line.querySelector('div') || line.querySelector('span:last-child');
+                    if (currentLineDiv) {
+                        currentLineDiv.appendChild(cursor);
+                    }
+                }
+
+                // Scroll container to bottom
+                container.scrollTo({
+                    top: container.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, accumulatedDelay);
+        });
+    }
+
+    // Run terminal animations on page load
+    window.addEventListener('load', () => {
+        // Delay slightly for smoother start
+        setTimeout(() => {
+            animateTerminal('hero-terminal-body', 150);
+            animateTerminal('about-terminal-body', 500);
+        }, 500);
+    });
 </script>
 </div>
