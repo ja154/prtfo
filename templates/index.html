@@ -114,35 +114,6 @@
                 transform: scale(1.15);
             }
 
-            #globe-center {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 70px;
-                height: 70px;
-                background: #000;
-                border-radius: 50%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                z-index: 100;
-                border: 2px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(249, 115, 22, 0.1);
-            }
-
-            #globe-center img {
-                width: 35px;
-                height: 35px;
-            }
-
-            #globe-center span {
-                font-size: 10px;
-                color: #fff;
-                margin-top: 4px;
-                font-weight: 600;
-            }
 
             .terminal-cursor {
                 display: inline-block;
@@ -610,10 +581,6 @@
                         </div>
                         <div id="skills-globe" class="z-10 w-full h-full relative">
                             <canvas id="globe-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
-                            <div id="globe-center">
-                                <img src="https://cdn.simpleicons.org/nextdotjs/white" alt="Next.js">
-                                <span>Next.js</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1475,6 +1442,7 @@
 
     // 3D Skills Globe Component
     const skills = [
+        { name: 'Next.js', slug: 'nextdotjs', color: 'ffffff' },
         { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
         { name: 'TypeScript', slug: 'typescript', color: '3178C6' },
         { name: 'React', slug: 'react', color: '61DAFB' },
