@@ -129,6 +129,11 @@
                 0%, 100% { opacity: 1; }
                 50% { opacity: 0; }
             }
+
+            /* Nav indicator transition */
+            #nav-indicator {
+                transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+            }
         </style>
 
         <!-- Background Grid -->
@@ -138,25 +143,39 @@
         </div>
 
         <!-- Right Navigation Dots -->
-        <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 items-center">
-            <a href="#" aria-label="Scroll to top"
-                class="w-10 h-10 rounded-full border border-orange-500/50 flex items-center justify-center text-orange-500 bg-orange-500/10 transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-            </a>
-            <a href="#" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Home"></a>
-            <a href="#certificates" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Certificates"></a>
-            <a href="#contact" class="w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Contact"></a>
+        <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center py-4">
+            <!-- Vertical track line -->
+            <div class="absolute w-px h-full bg-slate-800 left-1/2 -translate-x-1/2 z-0"></div>
+
+            <!-- Moving Indicator (The "down scrolling button" based on image) -->
+            <div id="nav-indicator" class="absolute z-20 w-10 h-10 -translate-x-1/2 left-1/2 top-0">
+                <button aria-label="Next section"
+                    class="w-10 h-10 rounded-full border border-orange-500 flex items-center justify-center text-orange-500 bg-[#111111] shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dots -->
+            <div class="relative z-10 flex flex-col gap-10 items-center py-4">
+                <a href="#home" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Home"></a>
+                <a href="#about" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="About"></a>
+                <a href="#skills" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Skills"></a>
+                <a href="#experience" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Experience"></a>
+                <a href="#projects" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Projects"></a>
+                <a href="#certificates" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Certificates"></a>
+                <a href="#contact" class="nav-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-orange-500 cursor-pointer transition-colors" title="Contact"></a>
+            </div>
         </div>
 
         <!-- Main Container -->
         <main class="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:px-12 flex flex-col gap-32">
 
             <!-- HERO SECTION -->
-            <section class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-between gap-12">
+            <section id="home" class="min-h-[80vh] flex flex-col lg:flex-row items-center justify-between gap-12">
                 <!-- Left Content -->
                 <div class="flex-1 space-y-8">
                     <!-- Badge -->
@@ -430,7 +449,7 @@
             </section>
 
             <!-- ABOUT SECTION -->
-            <section class="space-y-12">
+            <section id="about" class="space-y-12">
                 <div class="flex items-center gap-4">
                     <h2 class="text-3xl font-bold text-white font-sans-heading"># About.system</h2>
                     <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
@@ -523,7 +542,7 @@
             </section>
 
             <!-- SKILLS SECTION -->
-            <section class="space-y-12">
+            <section id="skills" class="space-y-12">
                 <div class="flex items-center gap-4">
                     <h2 class="text-3xl font-bold text-white font-sans-heading"># Skills.json</h2>
                     <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
@@ -587,7 +606,7 @@
             </section>
 
             <!-- EXPERIENCE SECTION -->
-            <section class="space-y-12">
+            <section id="experience" class="space-y-12">
                 <div class="flex items-center gap-4">
                     <h2 class="text-3xl font-bold text-white font-sans-heading">$ git log --stat --oneline</h2>
                     <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
@@ -734,7 +753,7 @@
             </section>
 
             <!-- PROJECTS SECTION -->
-            <section class="space-y-12">
+            <section id="projects" class="space-y-12">
                 <div class="flex items-center gap-4">
                     <h2 class="text-3xl font-bold text-white font-sans-heading">$ ls -la ~/projects</h2>
                     <div class="flex-grow h-px bg-gradient-to-r from-orange-500/50 to-transparent"></div>
@@ -1388,57 +1407,91 @@
             <p class="pt-4 text-xs opacity-75">&copy; 2026 Josephat Mwagongo. All rights reserved.</p>
         </footer>
     </div>
-</body>
 
-</html>
-
-<!-- JavaScript for dynamic elements -->
-<script>
+    <!-- JavaScript for dynamic elements -->
+    <script>
     // Smooth scrolling for navigation dots
     document.querySelectorAll(".fixed.right-8 a").forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
+            const targetId = this.getAttribute("href");
+            if (targetId && targetId !== "#") {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }
         });
     });
 
-    // Simulate typing effect for hero section (optional, can be added later)
-    // const heroTitle = document.querySelector(".hero-title span");
-    // const text = heroTitle.textContent;
-    // heroTitle.textContent = '';
-    // let i = 0;
-    // function typeWriter() {
-    //     if (i < text.length) {
-    //         heroTitle.textContent += text.charAt(i);
-    //         i++;
-    //         setTimeout(typeWriter, 100);
-    //     }
-    // }
-    // setTimeout(typeWriter, 1000);
+    // Intersection Observer for active navigation dots
+    const sections = document.querySelectorAll("section[id]");
+    const navDots = document.querySelectorAll(".nav-dot");
+    const navIndicator = document.getElementById("nav-indicator");
 
-    // Intersection Observer for active navigation dots (optional)
-    // const sections = document.querySelectorAll("section");
-    // const navDots = document.querySelectorAll(".fixed.right-8 .w-2");
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    };
 
-    // const observer = new IntersectionObserver(entries => {
-    //     entries.forEach(entry => {
-    //         if (entry.isIntersecting) {
-    //             navDots.forEach(dot => dot.classList.remove("bg-orange-500"));
-    //             const targetDot = document.querySelector(`.fixed.right-8 [href='#${entry.target.id}']`);
-    //             if (targetDot) {
-    //                 targetDot.classList.add("bg-orange-500");
-    //             }
-    //         }
-    //     });
-    // }, {
-    //     threshold: 0.5
-    // });
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navDots.forEach(dot => dot.classList.remove("bg-orange-500"));
+                navDots.forEach(dot => dot.classList.add("bg-slate-700"));
 
-    // sections.forEach(section => {
-    //     observer.observe(section);
-    // });
+                const targetDot = document.querySelector(`.nav-dot[href="#${entry.target.id}"]`);
+                if (targetDot && navIndicator) {
+                    targetDot.classList.remove("bg-slate-700");
+                    targetDot.classList.add("bg-orange-500");
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Continuous scroll progress indicator
+    function updateIndicator() {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
+
+        const navContainer = document.querySelector('.fixed.right-8 .relative.z-10');
+        if (navContainer && navIndicator) {
+            const trackHeight = navContainer.offsetHeight;
+            // Max travel is distance between first and last dot center (trackHeight - 2 * padding - dot_size)
+            // padding is 16px (py-4), dot_size is 8px (h-2)
+            const maxTravel = trackHeight - 40;
+            const translateY = scrollPercent * maxTravel;
+            navIndicator.style.transform = `translate(-50%, ${translateY}px)`;
+        }
+    }
+
+    window.addEventListener('scroll', updateIndicator);
+    window.addEventListener('resize', updateIndicator);
+    updateIndicator();
+
+    // Handle nav indicator click to go to next section
+    if (navIndicator) {
+        navIndicator.addEventListener('click', () => {
+            const activeDot = document.querySelector('.nav-dot.bg-orange-500');
+            if (activeDot) {
+                const nextDot = activeDot.nextElementSibling;
+                if (nextDot && nextDot.classList.contains('nav-dot')) {
+                    const targetId = nextDot.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // If at last dot, scroll to top
+                    document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
 
     // 3D Skills Globe Component
     const skills = [
@@ -1678,13 +1731,15 @@
         });
     }
 
-    // Run terminal animations on page load
-    window.addEventListener('load', () => {
-        // Delay slightly for smoother start
-        setTimeout(() => {
-            animateTerminal('hero-terminal-body', 150);
-            animateTerminal('about-terminal-body', 500);
-        }, 500);
-    });
-</script>
-</div>
+        // Run terminal animations on page load
+        window.addEventListener('load', () => {
+            // Delay slightly for smoother start
+            setTimeout(() => {
+                animateTerminal('hero-terminal-body', 150);
+                animateTerminal('about-terminal-body', 500);
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
